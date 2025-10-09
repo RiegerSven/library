@@ -5,3 +5,10 @@ toc: false
 # Preface {.unnumbered}
 
 This is the new repository for my coding and teaching materials. The chapters will be gradually added here.
+
+
+::: {.callout-important icon="true" appearance="simple" title="Transparency statement regarding the use of AI tools"}
+
+The text of this book was written with the help of AI tools (ChatGPT 5, GitHub Copilot). All AI-generated text was carefully reviewed and edited by the author. Any errors or inaccuracies are the author's own.
+
+:::

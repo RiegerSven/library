@@ -29,16 +29,19 @@ book:
       text: "Preface"
     - part: "Software and tools"
       chapters:
-        - href: content/software/intro-r-rstudio.qmd
-          text: "Introduction to R and RStudio"
+        - href: software/choose-your-ide.qmd
+          text: "Chose your IDE for R"
+        - href: software/intro-r-rstudio.qmd
+          text: "Introduction to R"
     - part: "Example Data"
       chapters:
-        - href: content/example-data/data-hsb.qmd
+        - href: example-data/data-hsb.qmd
           text: "High School and Beyond"
 
 
 format: 
     html:
+      theme: litera
       embed-resources: false
       toc: true
       css: styles.css
