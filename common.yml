@@ -1,0 +1,20 @@
+
+
+
+# code stuff
+highlight-style: github
+code-fold: false
+code-line-numbers: true
+code-annotations: below
+code-copy: true
+code-link: true
+
+# links
+link-external-icon: false
+link-external-newwindow: true
+link-citations: true
+
+crossrefs-hover: true
+
+execute: 
+  freeze: auto

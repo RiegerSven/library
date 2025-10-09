@@ -1,0 +1,49 @@
+project:
+  type: book
+  output-dir: _book
+
+metadata-files:
+  - common.yml 
+
+bibliography: 
+  - github-library.bib
+csl: apa.csl
+
+book:
+  title: "Coding and Teaching Library"
+  author:
+    - name: "[Sven Rieger](<https://riegersven.github.io/>)"
+      affiliation: 
+        - name: University of Tübingen
+          city: Tübingen
+          url: https://uni-tuebingen.de/
+      email: "sven.rieger@uni-tuebingen.de"
+      email-obfuscation: javascript
+      orcid: 0000-0002-0339-0695
+  reader-mode: false
+  page-footer: 
+    center: "Copyright 2025"
+    left: "This book is build with [Quarto](<https://www.quarto.org>)."
+  chapters: 
+    - href: index.qmd
+      text: "Preface"
+    - part: "Software and tools"
+      chapters:
+        - href: content/software/intro-r-rstudio.qmd
+          text: "Introduction to R and RStudio"
+    - part: "Example Data"
+      chapters:
+        - href: content/example-data/data-hsb.qmd
+          text: "High School and Beyond"
+
+
+format: 
+    html:
+      embed-resources: false
+      toc: true
+      css: styles.css
+      grid:
+        sidebar-width: 250px
+        body-width: 800px
+        margin-width: 250px
+        gutter-width: 1.5em
