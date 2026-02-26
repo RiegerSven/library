@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.10">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-02-13">
+
+<title>6&nbsp; Setup a Project Environment – Coding and Teaching Library</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../example-data/data-hsb.html" rel="next">
+<link href="../software/quarto-and-zotero.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-cd11bcd1b437ec35c0dee322a6d3547e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ed01ea5ea51b7811f2dbb77888d42e76.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../include/webex.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../software/road-to-reproducible-projects.html">Software</a></li><li class="breadcrumb-item"><a href="../software/setup-a-project-environment.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Setup a project environment</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Coding and Teaching Library</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/RiegerSven/library" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Software</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../software/road-to-reproducible-projects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Road To Reproducible Projects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../software/choose-an-ide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose an IDE (for R)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../software/introduction-to-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../software/introduction-to-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">A not so short introduction to Quarto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../software/quarto-and-zotero.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Use Quarto with Zotero</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../software/setup-a-project-environment.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Setup a project environment</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Example Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../example-data/data-hsb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">High School and Beyond</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#prerequisite" id="toc-prerequisite" class="nav-link active" data-scroll-target="#prerequisite"><span class="header-section-number">6.1</span> Prerequisite</a></li>
+  <li><a href="#working-directory" id="toc-working-directory" class="nav-link" data-scroll-target="#working-directory"><span class="header-section-number">6.2</span> Working Directory</a>
+  <ul class="collapse">
+  <li><a href="#create-a-working-directory-project-folder" id="toc-create-a-working-directory-project-folder" class="nav-link" data-scroll-target="#create-a-working-directory-project-folder"><span class="header-section-number">6.2.1</span> Create a working directory (project folder)</a></li>
+  <li><a href="#create-the-subdirectories-programmatically" id="toc-create-the-subdirectories-programmatically" class="nav-link" data-scroll-target="#create-the-subdirectories-programmatically"><span class="header-section-number">6.2.2</span> Create the (sub)directories (programmatically)</a></li>
+  </ul></li>
+  <li><a href="#version-control-git" id="toc-version-control-git" class="nav-link" data-scroll-target="#version-control-git"><span class="header-section-number">6.3</span> Version control via Git <i class="fa-brands fa-git-alt" aria-label="git-alt"></i></a>
+  <ul class="collapse">
+  <li><a href="#what-is-version-control-and-why-you-should-use-it" id="toc-what-is-version-control-and-why-you-should-use-it" class="nav-link" data-scroll-target="#what-is-version-control-and-why-you-should-use-it"><span class="header-section-number">6.3.1</span> What is version control and why you should use it?</a></li>
+  <li><a href="#git-basics" id="toc-git-basics" class="nav-link" data-scroll-target="#git-basics"><span class="header-section-number">6.3.2</span> Git <i class="fa-brands fa-git-alt" aria-label="git-alt"></i> Basics</a></li>
+  </ul></li>
+  <li><a href="#git-in-ides" id="toc-git-in-ides" class="nav-link" data-scroll-target="#git-in-ides"><span class="header-section-number">6.4</span> Git in IDEs</a>
+  <ul class="collapse">
+  <li><a href="#combine-it-with-github" id="toc-combine-it-with-github" class="nav-link" data-scroll-target="#combine-it-with-github"><span class="header-section-number">6.4.1</span> Combine it with GitHub <i class="fa-brands fa-github" aria-label="github"></i></a></li>
+  </ul></li>
+  <li><a href="#creating-a-reproducible-environment-the-renv-package" id="toc-creating-a-reproducible-environment-the-renv-package" class="nav-link" data-scroll-target="#creating-a-reproducible-environment-the-renv-package"><span class="header-section-number">6.5</span> Creating a reproducible environment: The <code>renv</code> package</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">6.6</span> </a>
+  <ul class="collapse">
+  <li><a href="#renv.lock" id="toc-renv.lock" class="nav-link" data-scroll-target="#renv.lock"><span class="header-section-number">6.6.1</span> <code>renv.lock</code></a></li>
+  <li><a href="#rprofile" id="toc-rprofile" class="nav-link" data-scroll-target="#rprofile"><span class="header-section-number">6.6.2</span> <code>.Rprofile</code></a></li>
+  </ul></li>
+  <li><a href="#full-in-docker" id="toc-full-in-docker" class="nav-link" data-scroll-target="#full-in-docker"><span class="header-section-number">6.7</span> Full in: Docker</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/RiegerSven/library/edit/main/software/setup-a-project-environment.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RiegerSven/library/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/RiegerSven/library/blob/main/software/setup-a-project-environment.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../software/road-to-reproducible-projects.html">Software</a></li><li class="breadcrumb-item"><a href="../software/setup-a-project-environment.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Setup a project environment</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Setup a Project Environment</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Last updated on</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 13, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Abstract</div>
+    <p>This part gives an introduction in setting up a (partly) reproducible project environment using R and Quarto. What is not covered yet, but planned is the use of <a href="https://www.docker.com">Docker</a> containers and pipeline tools (e.g., <code>targets</code> <a href="https://books.ropensci.org/targets/">package</a>).</p>
+  </div>
+</div>
+
+
+</header>
+
+
+<section id="prerequisite" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="prerequisite"><span class="header-section-number">6.1</span> Prerequisite</h2>
+<p>To follow this chapter, I assume that you are familiar with the basics of RStudio or Positron, R as a programming language and Quarto as a publishing system. If not, you can check out <a href="../software/choose-an-ide.html">Chapter 2</a>: <em>Choose an IDE</em>, <a href="#introduction-to-r">Chapter 3</a>: <em>Introduction to R</em> and <a href="#introduction-to-quarto">Chapter 4</a>: <em>A not so short introduction to Quarto</em>.</p>
+</section>
+<section id="working-directory" class="level2 page-columns page-full" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="working-directory"><span class="header-section-number">6.2</span> Working Directory</h2>
+<p>A robust project environment begins with a structured organization of data, code and output files within a working directory. This means, you should create a dedicated project folder with an informative name. The structure of this folder should look anything like in the following example. Different components of a project (i.e., data, code, and output-files) should be stored in separate directories.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p><code>.md</code> = markdown, <code>.qmd</code> = quarto-markdown, <code>.csv</code> = comma-separated-values-format, <code>.png</code> = portable-network-graphics, <code>.pdf</code> = portable-document-format, <code>yml</code> = Yet Another Markup Language</p>
+</div></div><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1"></a>ProjectName/</span>
+<span id="cb1-2"><a href="#cb1-2"></a>├── data/</span>
+<span id="cb1-3"><a href="#cb1-3"></a>│   ├── raw/ # Original datasets (read-only)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>│   │   ├── rawData-1.csv </span>
+<span id="cb1-5"><a href="#cb1-5"></a>│   │   ├── rawData-2.csv </span>
+<span id="cb1-6"><a href="#cb1-6"></a>│   │   └── ...</span>
+<span id="cb1-7"><a href="#cb1-7"></a>│   ├── processed/ # Cleaned, processed and final datasets</span>
+<span id="cb1-8"><a href="#cb1-8"></a>│   │   ├── 01_dataCleaning.csv</span>
+<span id="cb1-9"><a href="#cb1-9"></a>│   │   ├── 02_dataTransformation.csv</span>
+<span id="cb1-10"><a href="#cb1-10"></a>│   │   ├── ...</span>
+<span id="cb1-11"><a href="#cb1-11"></a>│   │   └── dataToShare.csv</span>
+<span id="cb1-12"><a href="#cb1-12"></a>├── code/</span>
+<span id="cb1-13"><a href="#cb1-13"></a>│   ├── src/ # reusable (custom) functions, helper utilities</span>
+<span id="cb1-14"><a href="#cb1-14"></a>│   │   ├── _functions.r</span>
+<span id="cb1-15"><a href="#cb1-15"></a>│   │   └── ...</span>
+<span id="cb1-16"><a href="#cb1-16"></a>│   ├── scripts/ # scripts for data processing and analysis</span>
+<span id="cb1-17"><a href="#cb1-17"></a>│   │   ├── 01_dataCleaning.qmd</span>
+<span id="cb1-18"><a href="#cb1-18"></a>│   │   ├── 02_dataTransformation.qmd</span>
+<span id="cb1-19"><a href="#cb1-19"></a>│   │   ├── 03_analysis.qmd</span>
+<span id="cb1-20"><a href="#cb1-20"></a>│   │   └── ...</span>
+<span id="cb1-21"><a href="#cb1-21"></a>├── output/ # results</span>
+<span id="cb1-22"><a href="#cb1-22"></a>│   ├── figures/</span>
+<span id="cb1-23"><a href="#cb1-23"></a>│   │   ├── histogram.png</span>
+<span id="cb1-24"><a href="#cb1-24"></a>│   │   ├── resultPlot.png</span>
+<span id="cb1-25"><a href="#cb1-25"></a>│   │   └── ...</span>
+<span id="cb1-26"><a href="#cb1-26"></a>│   ├── tables/</span>
+<span id="cb1-27"><a href="#cb1-27"></a>│   │   ├── summaryTable.csv</span>
+<span id="cb1-28"><a href="#cb1-28"></a>│   │   └── ...</span>
+<span id="cb1-29"><a href="#cb1-29"></a>├── report.qmd # document that combines everything</span>
+<span id="cb1-30"><a href="#cb1-30"></a>├── report.pdf # aka rendered report.qmd  </span>
+<span id="cb1-31"><a href="#cb1-31"></a>├── images/ # images that need to be included</span>
+<span id="cb1-32"><a href="#cb1-32"></a>├── README.md # provides a project overview</span>
+<span id="cb1-33"><a href="#cb1-33"></a>├── .gitignore # useful when using Git </span>
+<span id="cb1-34"><a href="#cb1-34"></a>├── _quarto.yml # Quarto Projects only</span>
+<span id="cb1-35"><a href="#cb1-35"></a>├── .Rprofile / renv.lock # information about evironment</span>
+<span id="cb1-36"><a href="#cb1-36"></a>├── codebook.md</span>
+<span id="cb1-37"><a href="#cb1-37"></a>└── ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To further strengthen the reproducibility of the project, adding a <code>README.md</code> file at the root of your working directory helps others to understand the structure, and usage of your project.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="No files outside the project folder!">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>No files outside the project folder!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Keep all project-related files inside the project folder. This ensures that the project is self-contained and can be shared or moved without breaking file references. This means, within a project, do not <em>hard-code</em> absolute paths (e.g., <code>C:/Users/YourName/Documents/ProjectName/data/raw/...</code>). Instead, use paths relative to the project root (e.g., <code>data/raw/...</code>). Accordingly, using <code>setwd()</code> inside project code is usually a sign of <em>fragile</em> code, as it introduces a hidden state and makes execution dependent on where and how the code is run.</p>
+<p>If you are struggling with file paths, consider using the <code>here</code> package <span class="citation" data-cites="R-here">(<a href="../references.html#ref-R-here" role="doc-biblioref">Müller, 2025</a>)</span>, which constructs paths relative to the project root in a robust way.</p>
+</div>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>See also Chapter 3.1: We need to talk about <code>setwd("path/that/only/works/on/my/machine")</code> of the online book <a href="https://rstats.wtf/projects#sec-setwd">What They Forgot to Teach You About R</a></p>
+</div></div><section id="create-a-working-directory-project-folder" class="level3 page-columns page-full" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="create-a-working-directory-project-folder"><span class="header-section-number">6.2.1</span> Create a working directory (project folder)</h3>
+<p>The easiest way to create (and manage) a working directory is to use the project feature provided by your IDE. This feature differs between RStudio and Positron. While RStudio uses so-called <strong>R Projects</strong>, Positron uses the Visual Studio Code approach of <strong>workspaces and folders</strong>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>See also <a href="https://r4ds.hadley.nz/workflow-scripts.html#projects">Chapter 6</a>: Workflow: scripts and projects of the book [R for Data Science]</p>
+</div></div><div class="callout callout-style-default callout-caution callout-titled" title="Exercise: Create a working directory through your IDE! (5 min)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Exercise: Create a working directory through your IDE! (5 min)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">RStudio</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Positron</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="../software/videos/work-dir-rstudio.mov"></video></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="../software/videos/work-dir-positron.mov"></video></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>During project initialization, you can choose to create a Git repository and/or to use the <code>renv</code> package <span class="citation" data-cites="R-renv">(<a href="../references.html#ref-R-renv" role="doc-biblioref">Ushey &amp; Wickham, 2026</a>)</span>. For a reproducible project setup, it is best practice to use both: Git for version control and <code>renv</code> for project environment management.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Git option when creating a project">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Git option when creating a project
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Git option may not be available if Git is not installed on your system. How to install Git and a (very) brief overview of its functionality can be found below in the section <a href="#version-control-git">Version control via Git <i class="fa-brands fa-git-alt" aria-label="git-alt"></i></a>.</p>
+</div>
+</div>
+</section>
+<section id="create-the-subdirectories-programmatically" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="create-the-subdirectories-programmatically"><span class="header-section-number">6.2.2</span> Create the (sub)directories (programmatically)</h3>
+<p>First, create a file (<code>File &gt; New File &gt; R Script</code>) and name it, for example, <code>create_dirs.R</code>. Next, to efficiently create all (sub)directories, you need to define a character vector that contains all the directories (paths).</p>
+<div class="cell" data-output-location="column" data-code-annotations="hover">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="0" onclick="event.preventDefault();">0</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1"></a>my_dirs <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2"></a>  <span class="fu">file.path</span>(<span class="st">"data"</span>, <span class="st">"raw"</span>),</span>
+<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3"></a>  <span class="fu">file.path</span>(<span class="st">"data"</span>, <span class="st">"processed"</span>),</span>
+<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4"></a>  <span class="fu">file.path</span>(<span class="st">"code"</span>, <span class="st">"scripts"</span>),</span>
+<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5"></a>  <span class="fu">file.path</span>(<span class="st">"code"</span>, <span class="st">"src"</span>),</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-6" class="code-annotation-target"><a href="#annotated-cell-2-6"></a>  <span class="st">"output"</span>,</span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7"></a>  <span class="st">"images"</span></span>
+<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8"></a>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="0">0</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="1" data-code-annotation="0">Use <code>c()</code> function to combine any values into a character vector.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="2,3,4,5" data-code-annotation="1">The <code>file.path()</code> function constructs platform-independent file paths.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="6,7" data-code-annotation="2">No subdirectories in these two directories.</span>
+</dd>
+</dl>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important callout-titled" title="These directories will be created in the current working directory!">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>These directories will be created in the current working directory!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You may want to check the working directory using <code>getwd()</code> function. If you created a <code>R</code> Project, this is most likely not an issue, because the working directory is set to the project folder.</p>
+</div>
+</div>
+</div>
+<p>Finally, we used a (<code>for</code>) loop to iterate over each path and executing the <code>dir.create()</code> function. This loop also checks whether each directory already exists to prevent redundant operations. The <code>recursive = TRUE</code> argument ensures that all necessary parent directories are created if they do not exist.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>helpmecode<span class="sc">::</span>create_dirs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function(directories, mode = "0755", showWarnings = TRUE) {
+
+  if (!is.character(directories)) {
+    stop("`directories` must be a character vector.", call. = FALSE)
+  }
+
+  if (anyNA(directories) || any(directories == "")) {
+    stop("`directories` contains invalid entries.", call. = FALSE)
+  }
+
+  directories &lt;- normalizePath(directories, winslash = "/", mustWork = FALSE)
+
+  created &lt;- character(0)
+
+  for (p in directories) {
+
+    ok &lt;- dir.create(p, recursive = TRUE, mode = mode, showWarnings = showWarnings)
+
+    if (isTRUE(ok)) {
+      created &lt;- c(created, p)
+    }
+
+    if (!ok &amp;&amp; !dir.exists(p)) {
+      stop(sprintf("Failed to create directory: '%s'", p), call. = FALSE)
+    }
+  }
+
+  if (length(created) &gt; 0) {
+    message("Directories created: ", paste(created, collapse = ", "))
+  }
+
+  invisible(directories)
+}
+&lt;bytecode: 0x1246e6b68&gt;
+&lt;environment: namespace:helpmecode&gt;</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution callout-titled" title="Exercise (10min)">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Exercise (10min)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Create the directory structure you want to create.</p>
+<ul>
+<li><p>Adjust the <code>myFolders</code> vector accordingly.</p></li>
+<li><p>Use the loop to create the (sub)directories (just copy it).</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="version-control-git" class="level2 page-columns page-full" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="version-control-git"><span class="header-section-number">6.3</span> Version control via Git <i class="fa-brands fa-git-alt" aria-label="git-alt"></i></h2>
+<section id="what-is-version-control-and-why-you-should-use-it" class="level3 page-columns page-full" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="what-is-version-control-and-why-you-should-use-it"><span class="header-section-number">6.3.1</span> What is version control and why you should use it?</h3>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>How to start with Git? → <a href="https://git-scm.com/book/en/v2">Book on Git</a></p>
+</div></div><p>Tracking and recording changes for all kind of files (within a project) over time through an additional program</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li><strong>Backup</strong>: Records the history of your project and allows for easy recovery of earlier versions</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Collaboration</strong>: It allows multiple people to work on the same project without overwriting each other’s work.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Understanding &amp; Traceability</strong>: It helps to track why changes were made, who made them, and when</li>
+</ul>
+</div>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:39%;">
+<div class="fragment" data-fragment-index="1">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<figcaption>Time machine analogy<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></figcaption>
+<p><img src="../images/chatgpt-time-machine.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<blockquote class="blockquote">
+<p>“Track Changes” features from Microsoft Word on steroids (<a href="https://happygitwithr.com/big-picture" class="uri">https://happygitwithr.com/big-picture</a>)</p>
+</blockquote>
+</div>
+</section>
+<section id="git-basics" class="level3 page-columns page-full" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="git-basics"><span class="header-section-number">6.3.2</span> Git <a href="https://git-scm.com"><i class="fa-brands fa-git-alt" aria-label="git-alt"></i></a> Basics</h3>
+<div class="columns">
+<div class="column" style="width:49.5%;">
+<div class="fragment fade-up">
+<ol type="1">
+<li><strong>Repository (Repo)</strong>: The place where your project lives. It contains all the files and the entire revision history.</li>
+</ol>
+</div>
+<div class="fragment fade-up">
+<ol start="2" type="1">
+<li><strong>Commit</strong>: Making a commit is making a snapshot of your repository at a specific time point. Each commit records the current state of your project and has a unique identifier.</li>
+</ol>
+</div>
+<div class="fragment fade-up">
+<ol start="3" type="1">
+<li><strong>Branch</strong>: A branch may be a separate line of project development (e.g., to try out new ideas in a isolated area). The ‘main’ (or previous ‘master’) branch is usually considered the definitive branch.</li>
+</ol>
+</div>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:49.5%;">
+<div class="fragment fade-up">
+<ol start="4" type="1">
+<li><strong>Merge</strong>: Merging means to incorporate changes from a different branch into the the main branch.</li>
+</ol>
+</div>
+<div class="fragment fade-up">
+<ol start="5" type="1">
+<li><strong>Pull Request</strong>: When collaborating, you make changes in your branch and then ask others to review and merge them. This request is called a pull request.</li>
+</ol>
+</div>
+<div class="fragment fade-up">
+<ol start="6" type="1">
+<li><strong>Clone</strong>: Making a local copy of a remote repository. <!-- For example, creating a repo on GitHub and then clone it to a local folder on your computer. --></li>
+</ol>
+</div>
+<div class="fragment fade-up">
+<ol start="7" type="1">
+<li><strong>Fork</strong>: Copy a project from somebody else without affecting the original project.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Happy Git and GitHub for the useR: <a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a></p>
+</div></div></section>
+</section>
+<section id="git-in-ides" class="level2 page-columns page-full" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="git-in-ides"><span class="header-section-number">6.4</span> Git in IDEs</h2>
+<p>Download &amp; install Git <i class="fa-brands fa-git-alt" aria-label="git-alt"></i>: <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a></p>
+<p>While installing Git on Windows is straightforward (just run <code>git-current-version.exe</code>), on macOS it requires an additional step of installing a package manager (here: <a href="https://brew.sh/">Homebrew</a>), before proceeding with the Git installation.</p>
+<div class="callout callout-style-simple callout-warning callout-titled" title="Git installation for macOS only.">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Git installation for macOS only.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Copy and paste the following comand in a macOS terminal. Follow the steps.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/bin/bash</span> <span class="at">-c</span> <span class="st">"</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va">)</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Then:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew install git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Git in RStudio</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Git in Positron</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Step 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Step 2</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ol type="1">
+<li>Go to Tools &gt; Global Options &gt; Git/SVN</li>
+<li>Click Enable version control interface for RStudio projects</li>
+<li>If necessary, enter the path for your Git where provided.</li>
+</ol>
+<p><img src="../images/rstudio-git-I.PNG" class="img-fluid"></p>
+<p>It will then appear in the Environment, History, and Connections pane.</p>
+<p><img src="../images/rstudio-git-II.PNG" class="img-fluid" style="width:80.0%"></p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Enable it when creating a <code>R</code> project: Click ‘Create a git repository’</p>
+<p><img src="../images/name-rproj-git.PNG" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Positron usually detects Git <a href="https://git-scm.com/downloads"><i class="fa-brands fa-git-alt" aria-label="git-alt"></i></a>. Because Positron is a fork of the IDE <a href="https://code.visualstudio.com/">Visual Studio Code</a>, it has integrated source control management (SCM) and includes Git support. If you encounter any problem, you find help here: <a href="https://code.visualstudio.com/docs/sourcecontrol/overview" class="uri">https://code.visualstudio.com/docs/sourcecontrol/overview</a></p>
+</div>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>After installation, you might want to check the installed version of git. Copy and paste the following comand in the terminal.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div><section id="combine-it-with-github" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="combine-it-with-github"><span class="header-section-number">6.4.1</span> Combine it with GitHub <i class="fa-brands fa-github" aria-label="github"></i></h3>
+<p>GitHub provides a home for Git-based projects and allows other people to see the project … forgejo .. gitlab</p>
+</section>
+</section>
+<section id="creating-a-reproducible-environment-the-renv-package" class="level2 page-columns page-full" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="creating-a-reproducible-environment-the-renv-package"><span class="header-section-number">6.5</span> Creating a reproducible environment: The <code>renv</code> package</h2>
+<p>In <code>R</code>, the <code>renv</code> package <span class="citation" data-cites="R-renv">(<a href="../references.html#ref-R-renv" role="doc-biblioref">Ushey &amp; Wickham, 2026</a>)</span> is desigend to create a reproducible environment.</p>
+<p>How does it work? When initiating a project with the <code>renv</code> package, it…</p>
+<ul>
+<li><p>creates a separate library (instead of having one library containing the packages used in all projects)</p></li>
+<li><p>creates a lockfile (i.e., <code>renv.lock</code>) that records metadata about all packages</p></li>
+<li><p>creates a <code>.Rprofile</code> file that is automatically run every time you start the project</p></li>
+</ul>
+<div class="callout callout-style-simple callout-warning callout-titled" title="But...no panacea for reproducibility">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>But…no panacea for reproducibility
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>renv</code> package does not help with the <code>R</code> version, <code>Pandoc</code> (R Markdown and Quarto rely on pandoc) and the operating system, versions of system libraries, compiler versions.</p>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p><a href="https://rstudio.github.io/renv/articles/renv.html" class="uri">https://rstudio.github.io/renv/articles/renv.html</a></p>
+</div></div></section>
+<section id="section" class="level2 page-columns page-full" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="section"><span class="header-section-number">6.6</span> </h2>
+<p><strong>Recommendation:</strong> Initiate the package when creating a <code>R</code> project. Alternativey, call the <code>renv::init()</code> function to set up the project infrastructure.</p>
+
+<div class="no-row-height column-margin column-container"><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div><div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">RStudio</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Positron</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p><img src="../images/name-rproj-renv.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p><img src="../images/positron-new-proj-rversion-renv.PNG" width="580" height="415"></p>
+</div>
+</div>
+</div>
+<section id="renv.lock" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="renv.lock"><span class="header-section-number">6.6.1</span> <code>renv.lock</code></h3>
+<p>The <code>renv.lock</code> file captures the exact state of an <code>R</code> project’s environment (stored as a <a href="https://en.wikipedia.org/wiki/JSON"><strong>JSON</strong></a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> format).</p>
+<section id="after-initialization" class="level4" data-number="6.6.1.1">
+<h4 data-number="6.6.1.1" class="anchored" data-anchor-id="after-initialization"><span class="header-section-number">6.6.1.1</span> After initialization</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">{</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="dt">"R"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>    <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"4.4.1"</span><span class="fu">,</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>    <span class="dt">"Repositories"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>      <span class="fu">{</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>        <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>        <span class="dt">"URL"</span><span class="fu">:</span> <span class="st">"https://packagemanager.posit.co/cran/latest"</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>      <span class="fu">}</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>    <span class="ot">]</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>  <span class="fu">},</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>  <span class="dt">"Packages"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a>    <span class="dt">"renv"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"renv"</span><span class="fu">,</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.0.9"</span><span class="fu">,</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a>        <span class="st">"utils"</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"ef233f0e9064fc88c898b340c9add5c2"</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a>    <span class="fu">}</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a>  <span class="fu">}</span></span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="monitoring-used-packages" class="level4" data-number="6.6.1.2">
+<h4 data-number="6.6.1.2" class="anchored" data-anchor-id="monitoring-used-packages"><span class="header-section-number">6.6.1.2</span> Monitoring (used) packages</h4>
+<div class="callout callout-style-simple callout-caution callout-titled" title="Exercise (10min)">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Exercise (10min)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>To understand the functionality of the package:</p>
+<ol type="1">
+<li>Create a <code>R</code> script</li>
+<li>Install any package <span class="citation" data-cites="R-jsonlite">(e.g., <code>jsonlite</code>, <a href="../references.html#ref-R-jsonlite" role="doc-biblioref">Ooms, 2025</a>)</span></li>
+<li>Use a function of the package (e.g., <code>toJSON()</code>)</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"jsonlite"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a>jsonlite<span class="sc">::</span><span class="fu">toJSON</span>(<span class="fu">list</span>(<span class="at">name =</span> <span class="st">"JohnDoe"</span>, <span class="at">age =</span> <span class="dv">25</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="4" type="1">
+<li>Call <code>renv::snapshot()</code>:</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>(<span class="at">type =</span> <span class="st">"implicit"</span>) <span class="co"># default</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<p>The updated <code>renv.lock</code> file looks now as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">{</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="dt">"R"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>    <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"4.4.1"</span><span class="fu">,</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>    <span class="dt">"Repositories"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>      <span class="fu">{</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>        <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>        <span class="dt">"URL"</span><span class="fu">:</span> <span class="st">"https://packagemanager.posit.co/cran/latest"</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>      <span class="fu">}</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a>    <span class="ot">]</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>  <span class="fu">},</span></span>
+<span id="cb11-11"><a href="#cb11-11"></a>  <span class="dt">"Packages"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a>    <span class="dt">"jsonlite"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb11-13"><a href="#cb11-13"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"jsonlite"</span><span class="fu">,</span></span>
+<span id="cb11-14"><a href="#cb11-14"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.8.9"</span><span class="fu">,</span></span>
+<span id="cb11-15"><a href="#cb11-15"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb11-16"><a href="#cb11-16"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb11-17"><a href="#cb11-17"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb11-18"><a href="#cb11-18"></a>        <span class="st">"methods"</span></span>
+<span id="cb11-19"><a href="#cb11-19"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb11-20"><a href="#cb11-20"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"4e993b65c2c3ffbffce7bb3e2c6f832b"</span></span>
+<span id="cb11-21"><a href="#cb11-21"></a>    <span class="fu">},</span></span>
+<span id="cb11-22"><a href="#cb11-22"></a>    <span class="dt">"renv"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb11-23"><a href="#cb11-23"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"renv"</span><span class="fu">,</span></span>
+<span id="cb11-24"><a href="#cb11-24"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.0.9"</span><span class="fu">,</span></span>
+<span id="cb11-25"><a href="#cb11-25"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb11-26"><a href="#cb11-26"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb11-27"><a href="#cb11-27"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb11-28"><a href="#cb11-28"></a>        <span class="st">"utils"</span></span>
+<span id="cb11-29"><a href="#cb11-29"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb11-30"><a href="#cb11-30"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"ef233f0e9064fc88c898b340c9add5c2"</span></span>
+<span id="cb11-31"><a href="#cb11-31"></a>    <span class="fu">}</span></span>
+<span id="cb11-32"><a href="#cb11-32"></a>  <span class="fu">}</span></span>
+<span id="cb11-33"><a href="#cb11-33"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>renv</code> package offers more useful functions such as <code>renv::restore()</code> or <code>renv::upodate()</code> (see the package documentation: <a href="https://rstudio.github.io/renv/articles/renv.html" class="uri">https://rstudio.github.io/renv/articles/renv.html</a>).</p>
+</section>
+</section>
+<section id="rprofile" class="level3 page-columns page-full" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="rprofile"><span class="header-section-number">6.6.2</span> <code>.Rprofile</code></h3>
+<p>In general, the <code>.Rprofile</code> file is a user-controllable file that enables the user to set default options (e.g., <code>options(digits = 4)</code>) and environment variables either on the user or the project level (see <a href="https://support.posit.co/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf#:~:text=Rprofile%20files%20are%20user%2Dcontrollable,base%20of%20the%20project%20directory.">here</a>). The <code>.Rprofile</code> file is run automatically every time you start <code>R</code> or a certain project.</p>
+<p>In the context of <code>renv</code> package, it sources the <code>activate.R</code> script that was created by the <code>renv</code> package. Recall, this script is run, everytime you (or somebody else) open(s) the project and creates the project environment (e.g., project-specific library).</p>
+
+<div class="no-row-height column-margin column-container"><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"renv/activate.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div><div class="callout callout-style-simple callout-important callout-titled" title="Collaboration and the use of version control">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Collaboration and the use of version control
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Ensure that <code>renv.lock</code>, <code>.Rprofile</code>, <code>renv/settings.json</code>, and <code>renv/activate.R</code> are commited to version control. Without these files, the environment cannot be recreated.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="full-in-docker" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="full-in-docker"><span class="header-section-number">6.7</span> Full in: Docker</h2>
+<p>– work in progress –</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-R-here" class="csl-entry" role="listitem">
+Müller, K. (2025). <em>Here: A simpler way to find your files</em>. <a href="https://here.r-lib.org/">https://here.r-lib.org/</a>
+</div>
+<div id="ref-R-jsonlite" class="csl-entry" role="listitem">
+Ooms, J. (2025). <em>Jsonlite: A simple and robust JSON parser and generator for r</em>. <a href="https://jeroen.r-universe.dev/jsonlite">https://jeroen.r-universe.dev/jsonlite</a>
+</div>
+<div id="ref-R-renv" class="csl-entry" role="listitem">
+Ushey, K., &amp; Wickham, H. (2026). <em>Renv: Project environments</em>. <a href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a>
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Image was created with ChatGPT<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>From wikipedia: <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation is an open standard file format and data interchange format that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and arrays (or other serializable values)<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../software/quarto-and-zotero.html" class="pagination-link" aria-label="Use Quarto with Zotero">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Use Quarto with Zotero</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../example-data/data-hsb.html" class="pagination-link" aria-label="High School and Beyond">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">High School and Beyond</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>This book is build with <a href="https://www.quarto.org">Quarto</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Copyright 2025</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RiegerSven/library/edit/main/software/setup-a-project-environment.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RiegerSven/library/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/RiegerSven/library/blob/main/software/setup-a-project-environment.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>videojs(video_shortcode_videojs_video1);</script>
+<script>videojs(video_shortcode_videojs_video2);</script>
+
+
+
+
+</body></html>
