@@ -11,3 +11,8 @@
 
 *.html
 /.quarto/
+
+**/*.quarto_ipynb
+
+/archive/
+/new_stuff/

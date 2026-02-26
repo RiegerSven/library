@@ -1,14 +1,306 @@
 ---
-toc: false
+toc: true
+date: "`r Sys.Date()`"
+published-title: "Last updated on"
+abstract: "This is the new repository for my coding and teaching materials. I gradually transfer them from my github page to this Quarto book."
+abstract-title: "Information"
+code-tools: false
 ---
 
-# Preface {.unnumbered}
+## Preface {.unnumbered}
 
-This is the new repository for my coding and teaching materials. The chapters will be gradually added here.
+This book serves as a library for my coding and teaching materials that I have developed over the years. The material is based on textbooks (references will be provided), websites ([stackexchange](https://stats.stackexchange.com/), [stackoverflow](https://stackoverflow.com/), ...), and various online resources (e.g., blogs, books). Since AI tools have *taken over coding*, all my code is written and reviewed with the help of AI tools (see the transparency statement below).
 
+```{r}
+#| label: update
+#| echo: false
 
-::: {.callout-important icon="true" appearance="simple" title="Transparency statement regarding the use of AI tools"}
+# turn this to TRUE if you want to update the packages to the most recent version.
+up_date_package <- FALSE
 
-The text of this book was written with the help of AI tools (ChatGPT 5, GitHub Copilot). All AI-generated text was carefully reviewed and edited by the author. Any errors or inaccuracies are the author's own.
+```
+
+::: {#ai-transparency-statement .callout-note icon="true" appearance="simple" title="Transparency statement regarding the use of AI tools"}
+
+The updated version of this library was written with the help of AI tools (ChatGPT 5, GitHub Copilot). All AI-generated text was carefully reviewed and edited by the author. Any errors or inaccuracies are the author's own.
 
 :::
+
+## Leading Principles
+
+Mainly caused through the replication/reproducibility crisis and my growing interest in reproducible coding practices, I try to follow two principles when writing code or teaching methods:
+
+::: {.column-margin}
+
+<https://en.wikipedia.org/wiki/Replication_crisis>
+
+:::
+
+1. **Computational Reproducibility**: Most of the time, I strive to make all code and analyses reproducible. This means that *anyone* should be able to run the code and obtain the same results, regardless of their computing environment.
+
+2. **Transparency**: Secondly, I try to be as transparent as possible about the methods and tools I use. This means providing clear documentation (and explanations) for the majority of code and analyses.
+
+
+
+## Software
+
+Most of the provided code is from the statistical software R [@R-base]. You will also find some Quarto, yaml code snippets.
+
+::: {.callout-note appearance="minimal" title="Session Information" collapse="true"}
+
+```{r}
+#| label: r-version
+#| code-line-numbers: false
+
+sessionInfo()
+```
+
+:::
+
+### (Most Actively) Used Packages
+
+The following (character) vector lists the R packages that I constantly use. The list may not be exhaustive, but it includes the most *important* ones. 
+
+```{r}
+#| label: pkg-list
+#| code-fold: false
+
+pkg_list <- c(
+  # Reproducibility & Project Infrastructure
+  "here",        # file paths
+  "renv",        # dependency management
+  "pak",         # package management
+  "knitr",       # dynamic report engine
+  
+  # Development
+  "devtools",    # package development
+  
+  # Data Handling
+  "haven",       # SPSS/Stata import
+  "stringr",     # string handling
+  
+  # Statistical Modeling
+  "lme4",        # linear mixed models
+  "lavaan",      # SEM
+  
+  # Report & Visualization
+  "DT",          # interactive tables
+  "ggplot2"      # graphics
+)
+```
+
+In the following you find the version of the packages which the book depends on. There complete list of all packages (including dependencies) that are used. The list is generated based on the `renv` lockfile.
+
+```{r}
+#| label: update-pkg-install
+#| echo: false
+if (up_date_package) {
+  pak::pkg_install(pkg = pkg_list, upgrade = TRUE)
+}
+```
+
+### Package Documentation
+
+```{r}
+#| label: retrieve-pkg
+#| eval: true
+#| code-fold: true
+
+
+pkg_dfs <- helpmecode::renv_lock_to_df()
+
+pkg_dfs[pkg_dfs$package %in% pkg_list,] |> 
+    DT::datatable(rownames = FALSE)
+```
+
+::: {.column-margin}
+
+The `renv_lock_to_df()` function of the `helpmecode` package processes the lockfile accordingly and returns a data frame with 3 columns: `package`, `version`, and `source`. The `helpmecode` package is an internal package that encompasses a variety of helper functions when working with R.
+
+:::
+
+::: {.callout-note appearance="minimal" title="All Packages in renv.lock" collapse="true"}
+
+```{r}
+#| label: all-pkgs
+#| eval: true
+#| echo: false
+#| code-fold: true
+pkg_dfs |> 
+    DT::datatable(rownames = FALSE)
+```
+
+:::
+
+
+### Credit to the Package Developers
+
+```{r}
+#| label: write-bib
+#| echo: false
+#| warning: false
+#| message: false
+knitr::write_bib(c(pkg_dfs$package,
+                   "base",
+                   "helpmecode",
+                   "learnr",
+                   "haven",
+                   "quarto",
+                   "tidyverse",
+                   "mice",
+                   "devtools"),
+                 file = here::here("r-refs.bib"))
+```
+
+```{r}
+#| label: inst-helpmecode
+#| eval: false
+#| echo: false
+
+remotes::install_github("RiegerSven/helpmecode")
+```
+
+```{r}
+#| label: printbib
+#| code-fold: true
+#| output: asis
+for (i in seq_along(pkg_list)) {
+  paste0("`",pkg_list[i],"`", " [@R-", pkg_list[i], "], ") |> 
+    cat()
+}
+```
+
+
+### Package Installation
+
+If you are interested in using the same packages as in this book, you can install them by running the following code snippets. To do this, I recommend using the `pak` package [@R-pak]. The `pak` package is desinged to overcome some limitations of the `install.packages()` function and makes package management in `R` more reliable.
+
+```{r}
+#| label: install-pak
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+
+
+install.packages("pak", dependencies = TRUE)
+```
+
+Once the `pak` package is installed, you can install the packages by running one of the following code snippets.
+
+::: {.panel-tabset}
+
+#### Exact versions
+
+```{r}
+#| label: generate-pkg-current
+#| code-fold: true
+#| eval: true
+inst_pkg_version <- pkg_dfs[pkg_dfs$package %in% pkg_list,]
+paste0("pkgs_with_version <- c(",
+    paste0("'", with(inst_pkg_version, paste0(package, "@", version)), "'",
+           collapse = ", "),
+    ")") |>
+      stringr::str_wrap(width = 60) |>
+      cat()
+```
+
+```{r}
+#| label: install-pkg-current
+#| eval: false
+#| code-line-numbers: false
+pak::pkg_install(pkg = pkgs_with_version, upgrade = FALSE)
+```
+
+#### Most updated versions
+
+```{r}
+#| label: install-pkg-updated
+#| eval: false
+#| code-line-numbers: false
+pak::pkg_install(pkg = pkg_list, upgrade = TRUE)
+```
+
+:::
+
+## License & Disclaimer
+ 
+Unless noted otherwise, the content (text, figures, descriptions, etc.) of the website is licensed under **CC BY 4.0**.
+
+::: {.column-margin}
+
+<https://creativecommons.org/licenses/by/4.0/>
+
+:::
+
+
+
+
+::: {.callout-note title="Creative Commons Attribution 4.0 International (CC BY 4.0)" collapse="true" icon="false" style="font-size: 1em;"}
+
+[**You are free to:**]{style="font-size: 1.25em; margin-bottom: 2em; padding-top: 2em;"}
+
+::: {style="margin-left: 2.5em; margin-top: 1.5em; margin-bottom: 1.5em;"}
+
+**Share** — copy and redistribute the material in any medium or format for any purpose, even commercially.
+
+**Adapt** — remix, transform, and build upon the material for any purpose, even commercially.
+
+The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+:::
+
+
+
+[**Under the following terms:**]{style="font-size: 1.25em; margin-bottom: 2em;"}
+
+::: {style="margin-left: 3em; margin-bottom: 1.5em;"}
+
+**Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+
+**No additional restrictions** — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+:::
+
+
+
+[**Notices:**]{style="font-size: 1.25em; margin-bottom: 2em;"}
+
+You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.
+
+No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.
+
+:::
+
+
+
+
+Code is released under the **MIT License**.
+
+::: {.column-margin}
+
+<https://opensource.org/license/mit>
+
+:::
+
+::: {#mit-license .callout-note title="MIT License " collapse="true" icon="false" style="font-size: 1em;"}
+
+Copyright (c) 2024–2026 Sven Rieger
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+:::
+
+Third-party components remain under their respective licenses. You are responsible for complying with those licenses.
+
+No warranty is given regarding correctness, completeness, or availability.
+
+## Bugs & Errors
+
+Found errors or any bugs? Please send me an email [&#9993;](mailto:sven.rieger@uni-tuebingen.de) or report them directly to github.com. At every page, below the table of contents, there is link to the repository of the website. If you think your issue may important for others, please use this option. 
+

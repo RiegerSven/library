@@ -19,3 +19,11 @@
     border: 1px solid black;
   }
 
+.callout.large-callout .callout-title-container {
+  font-size: 1.2em;
+}
+
+.callout.large-callout .callout-body {
+  font-size: 1em;
+  padding-top: 1em;
+}

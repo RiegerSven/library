@@ -1,0 +1,68 @@
+---
+title: "The Road To Reproducible Projects"
+date: "2026-02-11"
+published-title: "Last updated on"
+abstract: ""
+---
+
+
+
+## Definition of Reproducibility
+
+Before outlining a robust reproducible workflow for data-related projects, we briefly review two different definitions of reproducibility. 
+
+> **Reproducibility**, closely related to **replicability** and **repeatability**, is a major principle underpinning the [scientific method](https://en.wikipedia.org/wiki/Scientific_method)^["*The scientific method is an empirical method for acquiring knowledge through careful observation, rigorous skepticism, hypothesis testing, and experimental validation.*" (retrieved from <https://en.wikipedia.org/wiki/Scientific_method> on February 13, 2026)]. For the findings of a study to be reproducible means that results obtained by an experiment or an observational study or in a statistical analysis of a data set should be achieved again with a high degree of reliability when the study is replicated. [...]
+
+::: {.column-margin}
+
+Retrieved from <https://en.wikipedia.org/wiki/Reproducibility> on February 13, 2026
+
+:::
+
+This Wikipedia definition is on a different level of granularity as it reflects the reproducibility of scientific findings in general. The following book chapters are not about this general concept. Instead, we focus on reproducibility in a narrower sense. The committee on Reproducibility and Replicability in Science, for example, defines reproducibility as follows  [@nationalacademiesofsciencesengineeringandmedicine2019, p.6]:
+
+::: {.callout-tip .large-callout title="Definition: Computational Reproducibility" }
+
+
+> Reproducibility is obtaining consistent results using the same input data; computational steps, methods, and code; and conditions of analysis. This definition is synonymous with “computational reproducibility” [...] 
+
+
+:::
+
+## What Threatens Computational Reproducibility?
+
+The main factors that threaten computational reproducibility are:
+
+1. Data non-availability [@wicherts2006]
+2. Researcher degrees of freedom [@simmons2011]
+3. Questionable research practices [@john2012]
+4. Incomplete and inaccurate documentation
+5. Changes in software (or hardware)
+
+
+While factors 1 to 3 largely depend on the goodwill (data availability) and integrity (adhering to good research practices) of researchers, the fourth and fifth factors can be addressed by setting up a robust workflow and using software tools that make it easier to document and share one's work.
+
+## Simplified Workflow for Data Projects
+
+@fig-road shows a general, albeit simplified and not yet reproducible, workflow for working with data. It starts with choosing an Integrated Development Environment (IDE), such as RStudio or Positron. Then, with the "help" of the IDE, you create a project environment where you can use R and/or Python for data analysis. Finally, you *should* use a publishing system (e.g., Quarto, RMarkdown, or Jupyter) to create reports, or theses.
+
+
+```{mermaid}
+%%| label: fig-road
+%%| fig-cap: "A simplified workflow for data projects."
+%%| 
+flowchart TB
+    IDE["Choose an IDE"] --> RStudio["RStudio"]
+    IDE --> Positron["Positron"]
+    RStudio & Positron --> P
+    P["Create a Project<br>Environment"] --> PL["Use R and/or Python"]
+    PL --> PS["Publishing System<br>(Quarto)"]
+    PS --> Reports & Thesis & ...
+```
+
+
+Computational reproducibility is largely established when setting up the project environment. If you have already chosen an integrated development environment (IDE) and are familiar with R and Quarto, you can jump directly to [Chapter 6](setup-a-project-environment.qmd). If not, you may want to read [Chapter 2](choose-an-ide.qmd) for *"guidance"* on choosing an IDE. In addition, you should become familiar with a programming language (e.g., R and Python are both supported by RStudio and Positron) and with the publishing system Quarto. Because I work primarily with R and Quarto, this book includes introductions to R (see [Chapter 3](introduction-to-r.qmd)) and Quarto (see [Chapter 4](introduction-to-quarto.qmd)).
+
+
+
+
