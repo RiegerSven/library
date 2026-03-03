@@ -1,0 +1,30 @@
+project:
+  type: default
+  output-dir: _slides
+  render:
+    - working-with-data/descriptive-statistics.qmd
+
+metadata-files:
+  - common.yml
+
+format:
+  revealjs:
+    embed-resources: true
+    footer: "[Back to website](<https://riegersven.github.io/library/>)"
+    smaller: true
+    scrollable: true
+    navigation-mode: linear
+    progress: true
+    keyboard: true
+    controls: true
+    controls-tutorial: true
+    controls-layout: edges
+    mouse-wheel: false
+    slide-number: c/t
+    show-slide-number: all
+    reference-location: document
+    theme: [simple, revealjs-styles.scss]
+
+execute:
+  freeze: true
+  cache: false

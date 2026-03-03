@@ -63,6 +63,3 @@ flowchart TB
 
 Computational reproducibility is largely established when setting up the project environment. If you have already chosen an integrated development environment (IDE) and are familiar with R and Quarto, you can jump directly to [Chapter 6](setup-a-project-environment.qmd). If not, you may want to read [Chapter 2](choose-an-ide.qmd) for *"guidance"* on choosing an IDE. In addition, you should become familiar with a programming language (e.g., R and Python are both supported by RStudio and Positron) and with the publishing system Quarto. Because I work primarily with R and Quarto, this book includes introductions to R (see [Chapter 3](introduction-to-r.qmd)) and Quarto (see [Chapter 4](introduction-to-quarto.qmd)).
 
-
-
-
