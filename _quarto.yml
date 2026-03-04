@@ -1,6 +1,9 @@
 project:
   type: default
 
+profile:
+  default: book
+
 bibliography: 
   - "github-library.bib"
   - "r-refs.bib"
@@ -20,11 +23,9 @@ link-external-newwindow: true
 link-citations: true
 
 crossrefs-hover: true
-
-format:
-  html: default
-  revealjs: default
+fig-cap-location: top
 
 execute: 
   freeze: false
   cache: false
+  echo: true

@@ -2,9 +2,6 @@ project:
   type: book
   output-dir: _book
 
-metadata-files: 
-  - common.yml
-
 book:
   title: Coding and Teaching Library
   author:
@@ -44,8 +41,12 @@ book:
       text: High School and Beyond
   - part: Working with Data
     chapters:
+    - href: working-with-data/graphical-visualization.qmd
+      text: Graphical Visualization (with `ggplot2`)
     - href: working-with-data/descriptive-statistics.qmd
       text: Descriptive Statistics
+    - href: working-with-data/correlation.qmd
+      text: Correlation
   - href: references.qmd
     text: References
 format:
@@ -66,6 +67,4 @@ format:
       gutter-width: 2em
     include-after-body: include/webex.js
 
-profile:
-  default: development
 

@@ -1,13 +1,10 @@
 ---
-title: Descriptive statistics
-author: "Sven Rieger"
-email: "sven.rieger@uni-tuebingen.de"
-email-obfuscation: javascript
-date: 05/15/24
+title: Descriptive Statistics
+date: 2026-03-04
 date-format: long
-published-title: "Last updated on"
-abstract: "This material introduces basic descriptive statistics (e.g., mean, standard deviation etc.). It is also available as a [Revealjs presentation](https://quarto.org/docs/presentations/revealjs/)."
-
+published-title: "Last updateded on"
+abstract: "This chapter introduces basic descriptive statistics (e.g., mean, standard deviation etc.) and how to compute them using R. It is also available as a [Revealjs presentation](https://quarto.org/docs/presentations/revealjs/)."
+footer: "[Back to riegersven.github.io](https://riegersven.github.io/library/working-with-data/descriptive-statistics.html)"
 ---
 
 ::: {.content-hidden when-profile="slides"}
@@ -15,8 +12,6 @@ abstract: "This material introduces basic descriptive statistics (e.g., mean, st
 ## Revealjs Presentation {.unnumbered}
 
 If you want to see the presentation in full screen click [here](../_slides/working-with-data/descriptive-statistics.html).
-
-
 
 <div class="container">
   <iframe class="responsive-iframe" src="../_slides/working-with-data/descriptive-statistics.html"></iframe>
@@ -175,16 +170,16 @@ ggplot(data.frame(x = c(-3, 3)), aes(x)) +
 
 ## Example data set
 
-**Consider the following 2 vectors within the example data set**
+Consider the following 2 vectors within the example data set**
 
 ```{r}
 #| label: exDat
 #| code-line-numbers: true
 #| echo: true
 
-exDat <- data.frame(
-  numVec = c(1, 2, 5, 3, 8),
-  chrVec = c("low", "med", "low", "high", "high")
+ex_dat <- data.frame(
+  num_vec = c(1, 2, 5, 3, 8),
+  chr_vec = c("low", "med", "low", "high", "high")
 )
 ```
 
@@ -214,7 +209,11 @@ Absolute frequencies refer to the numbers of a particular value or category appe
 
 :::
 
+::: {.content-hidden unless-profile="slides"}
+
 ## Absolute Frequencies in R {#abs-freq-r}
+
+:::
 
 ::: {.panel-tabset}
 
@@ -224,8 +223,8 @@ Absolute frequencies refer to the numbers of a particular value or category appe
 #| label: abs-freq-base-1
 #| echo: true
 #| output-location: column-fragment
-with(exDat,
-     table(chrVec)) 
+with(ex_dat,
+     table(chr_vec)) 
 ```
 
 
@@ -237,8 +236,8 @@ An important argument (`useNA`) and another useful function (`addmargins()`)...
 #| label: abs-freq-base-2
 #| echo: true
 #| output-location: column-fragment
-with(exDat,
-     table(chrVec, useNA = "always")) |>
+with(ex_dat,
+     table(chr_vec, useNA = "always")) |>
   addmargins() 
 ```
 
@@ -250,8 +249,8 @@ with(exDat,
 #| label: abs-freq-dplyr
 #| echo: true
 #| output-location: column
-exDat |>
-  dplyr::group_by(chrVec) |>
+ex_dat |>
+  dplyr::group_by(chr_vec) |>
   dplyr::summarise(absFreq = dplyr::n())
 ```
 
@@ -288,9 +287,11 @@ $$
 
 :::
 
+::: {.content-hidden unless-profile="slides"}
 
 ## Relative Frequencies in R {#rel-freq-r}
 
+:::
 
 ::: {.panel-tabset}
 
@@ -300,8 +301,8 @@ $$
 #| label: rel-freq-base-1
 #| echo: true
 #| output-location: column-fragment
-with(exDat,
-     table(chrVec)/sum(table(exDat$chrVec))) 
+with(ex_dat,
+     table(chr_vec)/sum(table(ex_dat$chr_vec))) 
 ```
 
 
@@ -313,8 +314,8 @@ Another useful function (`sprintf()`) to force 2 decimal and add %...
 #| label: rel-freq-base-2
 #| echo: true
 #| output-location: column-fragment
-with(exDat,
-     table(chrVec)/sum(table(chrVec))) |>
+with(ex_dat,
+     table(chr_vec)/sum(table(ex_dat$chr_vec))) |>
      (function(x) sprintf("%.2f%%", x*100))()
 
 ```
@@ -327,9 +328,9 @@ with(exDat,
 #| label: rel-freq-dplyr
 #| echo: true
 #| output-location: column
-exDat |>
-  dplyr::select(chrVec) |>
-  dplyr::group_by(chrVec) |>
+ex_dat |>
+  dplyr::select(chr_vec) |>
+  dplyr::group_by(chr_vec) |>
   dplyr::summarise(absFreq= dplyr::n()) |>
   dplyr::mutate(relFreq = absFreq/sum(absFreq)) 
 ```
@@ -365,8 +366,8 @@ How to calculate the mean in `R`?
 #| echo: true
 #| output-location: column-fragment
 #| code-line-numbers: false
-with(exDat,
-     mean(numVec))
+with(ex_dat,
+     mean(num_vec))
   
 ```
 
@@ -391,8 +392,8 @@ To demonstrate this we create another example vector (`exVec2`).
 #| echo: true
 #| output-location: fragment
 #| code-line-numbers: false
-numVec2 <- c(1, 2, 5, 3, 8, NA)
-mean(numVec2)
+num_vec2 <- c(1, 2, 5, 3, 8, NA)
+mean(num_vec2)
 ```
 
 :::
@@ -414,7 +415,7 @@ If there is missing data, we are required to set the argument `na.rm` to `TRUE`.
 #| echo: true
 #| output-location: fragment
 #| code-line-numbers: false
-mean(numVec2, na.rm = TRUE)
+mean(num_vec2, na.rm = TRUE)
 ```
 
 :::
@@ -427,7 +428,7 @@ mean(numVec2, na.rm = TRUE)
 <br>
 
 ::: {.callout-important appearance="simple" icon="true" .fragment}
-Omitting or deleting missing values should–in most scenarios–be avoided altogether [@schafer2002; @Enders2023]
+Omitting or deleting missing values should–in most scenarios–be avoided altogether [@schafer2002; @enders2025]
 
 :::
 
@@ -469,8 +470,8 @@ How to calculate the median in `R`?
 #| echo: true
 #| output-location: column-fragment
 #| code-line-numbers: false
-with(exDat,
-     median(numVec))
+with(ex_dat,
+     median(num_vec))
 ```
 
 :::
@@ -508,8 +509,8 @@ How to calculate the variance in `R`?
 #| echo: true
 #| output-location: column-fragment 
 #| code-line-numbers: false
-with(exDat,
-     var(numVec))
+with(ex_dat,
+     var(num_vec))
 ```
 
 
@@ -550,8 +551,8 @@ How to calculate the standard deviation in `R`?
 #| echo: true
 #| output-location: column-fragment
 #| code-line-numbers: false
-with(exDat,
-     sd(numVec))
+with(ex_dat,
+     sd(num_vec))
 ```
 
 :::
@@ -577,8 +578,8 @@ How to calculate the range in `R`?
 #| echo: true
 #| output-location: column-fragment
 #| code-line-numbers: false
-with(exDat,
-     range(numVec))
+with(ex_dat,
+     range(num_vec))
 ```
 :::
 
@@ -591,9 +592,9 @@ Alternatively, calculate minimum and maximum separately...
 #| echo: true
 #| output-location: column
 #| code-line-numbers: false
-with(exDat,{
-     c(min(numVec),
-       max(numVec))})
+with(ex_dat,{
+     c(min(num_vec),
+       max(num_vec))})
 ```
 
 
@@ -605,39 +606,24 @@ To compute the range apply @eq-range.
 #| echo: true
 #| output-location: column
 #| code-line-numbers: false
-with(exDat,
-     max(numVec)-min(numVec))
+with(ex_dat,
+     max(num_vec)-min(num_vec))
 ```
 
 :::
 
 
-::: {.content-hidden unless-format="revealjs"}
+::: {.content-hidden unless-profile="slides"}
 
 # Exercise {#descr-exercise}
 
-navigate vertical &#8595;
-
 :::
 
-::: {.content-hidden unless-format="revealjs"}
+## Put everything together 
 
-## Put everything together 0 {auto-animate=true}
+::: {.callout-caution appearance="simple" icon="true" title="Exercise" collapse="show"}
 
-
-::: {.callout-caution appearance="simple" icon="true" title="Exercise"}
-
-Let us calculate several descriptive statistics (e.g., mean, standard deviation, minimum and maximum) for multiple variables. For this exercise, we use a subset of the HSB dataset which is provided in the `merTools` package [@R-merTools] (for some details see [here](../example-data/data-hsb.qmd)):
-
-:::
-
-:::
-
-## Put everything together 0 {auto-animate=true}
-
-::: {.callout-caution appearance="simple" icon="true" title="Exercise"}
-
-Let us calculate several descriptive statistics (e.g., mean, standard deviation, minimum and maximum) for multiple variables. For this exercise, we use a subset of the HSB dataset which is provided in the `merTools` package [@R-merTools] (for some details see [here](../example-data/data-hsb.qmd)):
+Let us calculate descriptive statistics (e.g., mean, standard deviation, minimum and maximum) for multiple variables. For this exercise, we use a subset of the HSB dataset which is provided in the `merTools` package [@R-merTools] (for some details see [here](../example-data/data-hsb.qmd)):
 
 ```{r}
 #| label: descr-imp-hsb
@@ -645,28 +631,39 @@ Let us calculate several descriptive statistics (e.g., mean, standard deviation,
 #| eval: true
 #| code-line-numbers: false
 #| output-location: column-fragment
+#install.packages("merTools")
 dat <- merTools::hsb
 head(dat, 10)
 ```
 
 :::
 
-## Put everything together I
+::: {.content-hidden unless-profile="slides"}
 
-A flexible approach would be...
+## Solution {#descr-solution}
+
+:::
+
+::: {.panel-tabset}
+
+### Step 1: Calculate descriptives 
+
+A flexible approach would be to use the `apply()` function...
+
+<!-- old # code-line-numbers: 1-4|6|7|8|9|10-15|16-17 -->
 
 ```{r}
 #| label: state-var
 #| echo: true
 #| output-location: column
-#| code-line-numbers: 1-4|6|7|8|9|10-15|16-17
+
 
 myVar <- c("Math achievement" = "mathach", # <1>
            "Gender" = "female", # <1> 
            "Socioeconomic status" = "ses", # <1>
            "Class size" = "size") # <1>
 
-exDescr <- apply( # <2>
+ex_descr <- apply( # <2>
   X = dat[,myVar], # <3>
   MARGIN = 2, # <4>
   FUN = function(x) { # <5>
@@ -694,53 +691,49 @@ There are also functions such as `colMeans()`, `colSums()`, `rowMeans()` and `ro
 :::
 :::
 
-## Put everything together II
+### Step 2: Print the results
 
 Print the results...
 
 ```{r}
 #| label: print-descr-1
 #| echo: true
+#| code-line-numbers: false
 #| output-location: column-fragment
 
-exDescr |>
-  print()
+print(ex_descr)
 ```
 
-::: {.fragment}
-<br>
-This is a weird format; variables should be in rows not columns. Transpose...
-:::
 
-::: {.fragment}
+This is a weird format; variables should be in rows not columns. Transpose...
+
 
 ```{r}
 #| label: print-descr-2
 #| echo: true
 #| output-location: column
-exDescr |>
+ex_descr |>
   t() |>
   print()
 ```
 
-:::
 
-<br>
-
-::: {.fragment}
 Better, but still not really convincing...
-:::
 
-## Making a table I
+
+### Step 3: Create results table
+
+<!-- old code-line-numbers: 1|2-3|4|5|6|7-12|13-14|15-19|20-21 -->
 
 ```{r}
-#| label: demo-descr-tbl
+#| label: tbl-descr
+#| tbl-cap: "Descriptive statistics"
+#| tbl-colwidths: [40, 15, 15, 15, 15]
 #| echo: true
-#| eval: false
-#| code-line-numbers: 1|2-3|4|5|6|7-12|13-14|15-19|20-21
+#| eval: true
 #| output-location: column
-
-exDescrTab <- exDescr |> #<1>
+library(flextable)
+ex_descr_table <- ex_descr |> #<1>
     t() |> #<2>
     as.data.frame() |> #<2>
     (\(d) cbind(names(myVar), d))() |>  #<3>
@@ -752,8 +745,8 @@ exDescrTab <- exDescr |> #<1>
       V2 = "SD", #<6>
       V3 = "Min", #<6>
       V4 = "Max") |> #<6>
-    align(part = "body", align = "c") |> #<7>
-    align(j = 1, part = "all", align = "l") |> #<7>
+    align(part = "body", align = "center") |> #<7>
+    align(j = 1, part = "all", align = "left") |> #<7>
     add_footer_lines( #<8>
       as_paragraph(as_i("Note. "), #<8>
                    "This is a footnote.") #<8>
@@ -761,9 +754,11 @@ exDescrTab <- exDescr |> #<1>
     align(align = "left", part = "footer") |> #<8>
     width(j = 1, width = 2, unit = "in") |> #<9>
     width(j = 2:5, width = 1, unit = "in")  #<9>
+
+ex_descr_table #<10>
 ```
 
-1. Take the results (here: `exDescr` object)...
+1. Take the results (here: `ex_descr` object)...
 2. ...and `transpose` (i.e., using the `t()` function) and coerce it to a `data.frame` object (`as.data.frame()`) 
 3. Use the so-called [lambda (or anonymous) function](<https://en.wikipedia.org/wiki/Anonymous_function>) to bind (using the `cbind()` function) the variable names as the first column to the dataset.
 4. Apply the `flextable()` function.
@@ -772,9 +767,9 @@ exDescrTab <- exDescr |> #<1>
 7. Center body part of the table (`align()`).
 8. Add a footnote (`add_footer_lines`) and align it to the left.
 9. Change column width (`width`) to 2 resp. 1 inch.
+10. Print the table.
 
-
-::: {.content-visible when-format="revealjs"}
+::: {.content-visible when-profile="slides"}
 
 ::: notes
 Lambda functions, also known as anonymous functions, are a feature in many programming languages, including R. In R, a lambda function is a function that is not bound to a name. This means that it can be created and used on the fly without defining it in the standard way with a name. Lambda functions are particularly useful for short, one-off functions that are used as arguments to other functions, like in apply family functions or in operations that involve the pipe operator (|>).
@@ -784,26 +779,9 @@ Lambda functions, also known as anonymous functions, are a feature in many progr
 
 
 
-## Making a table II {#make-tab-ii}
+### Step 4: Export the table (optional)
 
-Print the table.
-
-```{r}
-#| label: tbl-descr
-#| tbl-cap: "Descriptive statistics"
-#| tbl-colwidths: [40, 15, 15, 15, 15]
-#| echo: true
-#| code-fold: true
-#| code-line-numbers: false
-#| code-annotations: false
-#| eval: false
-#| output-location: default
-exDescrTab
-```
-
-## Table export
-
-If you want to export the table...
+If you are not using Quarto (what you should be doing, though), and you need to export the table, you can use the `save_as_docx()` function.
 
 ```{r}
 #| label: docx-export
@@ -814,9 +792,11 @@ exDescrTab |>
   save_as_docx(path = "descr-tab.docx")
 ```
 
+:::
+
 ## Descriptive statistics with the `psych` package {#descr-R}
 
-- Alternatively, it is convenient to use additional `R` packages such as the `psych` package [@R-psych] to calculate descriptive statistics
+- Alternatively, it is convenient to use additional R packages such as the `psych` package [@R-psych] to calculate descriptive statistics
  
 - Here we use the `describe` function (with the `fast` argument set to `TRUE`) to calculate the descriptive statistics of all variables within the example data set
 
@@ -824,7 +804,7 @@ exDescrTab |>
 #| label: tbl-descr-psych
 #| tbl-cap: Descriptive statistics with the psych package
 #| echo: true
-#| eval: false
+#| eval: true
 #| output-location: default
 
 dat |>
@@ -834,21 +814,47 @@ dat |>
   colformat_double(digits = 2)
 ```
 
-## Exercise 
 
-::: {.callout-caution appearance="simple"}
-Style the table according to your ideas/demands and export it to Word.
-:::
-
-::: {.content-visible when-profile="slides"}
+::: {.content-hidden when-profile="book"}
 
 # Questions?
 
-# References {#descr-ref-reveal}
-
-
+## References {#descr-ref-reveal}
 
 :::
 
 
+::: {.content-hidden when-profile="slides"}
 
+## Some Questions
+
+::: {.callout-note title="This is work in progress..."}
+
+... and needs to be completed.
+
+:::
+
+```{r}
+#| label: descr-q-1
+#| echo: false
+#| 
+descr_q1 <- webexercises::mcq(
+  opts = c("mean", "median", "skewness", "mode", answer = "skewness")
+)
+```
+
+What is NOT a measure of central tendency? `r descr_q1`
+
+```{r}
+#| label: descr-q-2
+#| echo: false
+
+descr_q2 <- webexercises::mcq(
+  opts = c("TRUE", answer = "FALSE")
+)
+```
+
+
+Most functions in R can deal *appropriately* with missing data if the argument `na.rm` is set to `TRUE`. `r descr_q2`
+
+:::

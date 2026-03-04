@@ -148,6 +148,7 @@ knitr::write_bib(c(pkg_dfs$package,
                    "quarto",
                    "tidyverse",
                    "mice",
+                   "plotly",
                    "devtools"),
                  file = here::here("r-refs.bib"))
 ```

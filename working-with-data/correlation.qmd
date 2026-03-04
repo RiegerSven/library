@@ -1,0 +1,14 @@
+---
+title: Descriptive Statistics
+date: 2026-03-04
+date-format: long
+published-title: "Last updateded on"
+abstract: "This chapter introduces correlation analysis and how to compute it using R."
+footer: "[Back to website](https://riegersven.github.io/library/working-with-data/correlation.html)"
+---
+
+::: {.callout-note title="This is work in progress..."}
+
+Comming soon...
+
+:::

@@ -3,14 +3,22 @@ project:
   output-dir: _slides
   render:
     - working-with-data/descriptive-statistics.qmd
+    - working-with-data/graphical-visualization.qmd
 
-metadata-files:
-  - common.yml
+author:
+  - name: '[Sven Rieger](<https://riegersven.github.io/>)'
+    affiliation:
+    - name: University of Tübingen
+      city: Tübingen
+      url: https://uni-tuebingen.de/
+    email: sven.rieger@uni-tuebingen.de
+    email-obfuscation: javascript
+    orcid: 0000-0002-0339-0695
 
 format:
   revealjs:
     embed-resources: true
-    footer: "[Back to website](<https://riegersven.github.io/library/>)"
+    slide-level: 3
     smaller: true
     scrollable: true
     navigation-mode: linear
@@ -24,6 +32,7 @@ format:
     show-slide-number: all
     reference-location: document
     theme: [simple, revealjs-styles.scss]
+    include-after-body: include/webex.js
 
 execute:
   freeze: true

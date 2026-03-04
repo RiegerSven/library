@@ -1,0 +1,1041 @@
+---
+title: Graphical Visualization (with `ggplot2`)
+date: 2026-03-04
+date-format: long
+published-title: "Last updateded on"
+abstract: "This chapter provides an introduction to graphical visualization using the `ggplot2` package. It provides an overview of different types of plots and how to create them. It is also available as a [Revealjs presentation](https://quarto.org/docs/presentations/revealjs/)."
+footer: "[Back to riegersven.github.io](https://riegersven.github.io/library/working-with-data/graphical-visualization.html)"
+---
+
+
+::: {.content-hidden when-profile="slides"}
+
+## Revealjs Presentation {.unnumbered}
+
+If you want to see the presentation in full screen click [here](../_slides/working-with-data/graphical-visualization.html).
+
+<div class="container">
+  <iframe class="responsive-iframe" src="../_slides/working-with-data/graphical-visualization.html"></iframe>
+</div> 
+
+:::
+
+::: {.content-hidden unless-profile="slides"}
+
+## Agenda for today
+
+- [Purpose of Data Visualizing](#data-viz)
+
+- [`ggplot2` package](#ggplot2-pkg) [@R-ggplot2]
+
+- [The Different Diagrams](#overview-diagrams)
+
+::: footer
+This is a [`revealjs`](https://revealjs.com/) presentation made with [Quarto](https://quarto.org/).
+:::
+
+:::
+
+## Purpose of Data Visualizing
+
+::: {.content-hidden unless-profile="book"}
+
+The purpose of data visualizing is versatile as it...
+
+:::
+
+::: {.incremental}
+
+- facilitates understanding of data (i.e., makes data "accessible")
+
+- reveals "hidden" structures, trends and patterns 
+
+- identifies outliers
+
+- helps to communicate results clearly (storytelling)
+
+- ...
+
+:::
+
+
+## (Some) Example Diagrams
+
+```{r}
+#| label: load-ggplot2-0
+#| echo: false
+#| message: false
+#| warning: false
+library(ggplot2)
+demoTxtSize <- 25
+```
+
+
+```{r}
+#| label: make-plots
+#| echo: false
+#| warmorning: false
+
+DemoBar <- ggplot(data = ggplot2::diamonds,
+                   aes(x = cut)) +
+                geom_bar(color = "black",
+                         fill = "white") +
+                labs(y = " ", x = " ") +
+                ggtitle("Barplot") +
+                theme_classic() +               
+                 theme(text = element_text(size=demoTxtSize),
+                       plot.title = element_text(hjust = 0.5))
+
+DemoHist <- ggplot(data = ggplot2::diamonds,
+                    aes(x = price)) +
+                 geom_histogram(color = "black",
+                                fill = "white") +
+                 labs(y = " ", x = " ") +
+                 ggtitle("Histogram") +
+                 theme_classic() +               
+                 theme(text = element_text(size=demoTxtSize),
+                       plot.title = element_text(hjust = 0.5))
+
+DemoScatter <- ggplot(data = ggplot2::diamonds,
+                      aes(x = price, y = carat, color = cut)) +
+                 geom_point() +
+                 labs(y = "Carat", x = "Price") +
+                 ggtitle("Scatterplot") +
+                 theme_classic() +               
+                 theme(text = element_text(size=demoTxtSize),
+                       plot.title = element_text(hjust = 0.5))
+
+
+set.seed(999)
+time <- 100
+lineDat <- data.frame(Date = seq(as.Date("2024-01-01"),
+                      by = "day",
+                      length.out = time), 
+                Y = c(cumsum(rnorm(time)),
+                      cumsum(rnorm(time)),
+                      cumsum(rnorm(time))),
+                Group = c(rep("Group 1", time),
+                         rep("Group 2", time),
+                         rep("Group 3", time)))
+DemoLine <- ggplot(data = lineDat,
+                      aes(x = Date, y = Y, color = Group)) +
+                 geom_line() +
+                 labs(y = "Y", x = "Date") +
+                 ggtitle("Lineplot") +
+                 theme_classic() +               
+                 theme(text = element_text(size=demoTxtSize),
+                       plot.title = element_text(hjust = 0.5))
+
+DemoBoxplot <- ggplot(data = ggplot2::diamonds,
+                      aes(x = cut, y = carat)) +
+                 geom_boxplot() +
+                 labs(y = "Carat", x = "Cut") +
+                 ggtitle("Boxplot") +
+                 theme_classic() +               
+                 theme(text = element_text(size=demoTxtSize),
+                       plot.title = element_text(hjust = 0.5))
+```
+
+::: {layout="[[1,1,1],[1,1,1]]"}
+
+::: {.fragment fragment-index=1}
+
+```{r}
+#| label: demo-barplot
+#| echo: false
+
+DemoBar
+
+```
+
+:::
+
+:::{.fragment fragment-index=2}
+
+```{r}
+#| label: demo-hist
+#| echo: false
+#| warning: false
+
+DemoHist
+
+```
+
+:::
+
+:::{.fragment fragment-index=3}
+```{r}
+#| label: demo-scatter
+#| echo: false
+
+DemoScatter
+```
+
+:::
+
+:::{.fragment fragment-index=4}
+
+```{r}
+#| label: demo-line
+#| echo: false
+
+DemoLine
+```
+
+:::
+
+::: {.fragment fragment-index=5}
+
+```{r}
+#| label: demo-boxplot
+#| echo: false
+
+DemoBoxplot
+```
+
+:::
+
+:::
+
+::: {.fragment fragment-index=6}
+But there are more such as Dot plots, venn diagrams, maps, networks, & many more...!
+:::
+
+
+
+
+
+
+## The `ggplot2` package {#ggplot2-pkg}
+
+::: {.content-hidden unless-profile="slides"}
+
+### Preface
+
+:::
+
+
+First of all, there are other graphical R packages such as:
+
+  - the `base` [@R-base] solution (e.g., `plot()` function)
+  - `lattice` package [@lattice2008]
+  - `plotly` package [@R-plotly]
+  - ...
+
+
+::: {.fragment}
+
+The `ggplot2` package [@R-ggplot2] ...
+
+:::
+
+::: {.incremental}
+- is based on the Grammar of Graphics [@wilkinson2005] [&rarr; graphs can be composed by independent components]{.fragment}
+
+- has great flexibility (and add-on packages) [&rarr; nothing is *impossible*]{.fragment}
+
+- has a broad community support (e.g., <https://stackoverflow.com/>), and AI tools help to generate `ggplot2` code 
+
+- belongs to the `tidyverse` [@R-tidyverse] package collection
+:::
+
+
+::: aside
+::: {.fragment}
+see @wickham2011
+:::
+:::
+
+
+
+### Key Components {#key-comp-ggplot}
+
+::: {.fragment}
+
+Every `ggplot` needs [3 components]{.fragment .highlight-blue} to produce a plot: 
+
+:::
+
+::: {.fragment}
+
+```{r}
+#| label: demo-ggplot-2
+#| echo: true
+#| eval: false
+#| code-line-numbers: 1|2|3
+#| output-location: column
+ggplot(data = diamonds, #<1>
+       aes(x = price, y = carat)) + #<2>
+    geom_point() #<3>
+    
+```
+
+1. the *data*,
+2. the so-called *aesthetic mappings* (i.e., which variables from the dataset should be used and how should they be mapped in the plot), and
+3. at least one layer that defines what kind of visualization is desired (e.g., `geom_point` for a scatter plot)
+
+:::
+
+
+
+::: {.callout-note appearance="default" icon="true" .fragment}
+
+Whereas the *data* and the *aesthetic mappings* (`aes()`) are stated within the `ggplot()` function, the `geom_point` layer is added with a `+`.
+
+:::
+
+
+
+
+::: aside
+::: {.fragment}
+<https://ggplot2-book.org/getting-started>
+:::
+:::
+
+
+### Getting Started with `ggplot2` 
+
+
+::: {.fragment}
+
+First, install and load the package.
+
+```{r}
+#| label: load-ggplot
+#| echo: true
+#| output-location: column
+#install.packages("ggplot2")
+library(ggplot2)
+```
+
+:::
+
+::: {.fragment style="padding-top: 0.5em;"}
+
+Setting a theme (optional). This can be done by using `theme_set()` function. There are some built-in themes such as `theme_minimal()`, `theme_bw()`, or `theme_classic()`.
+
+```{r}
+#| label: setTheme-classic
+#| echo: true
+#| code-line-numbers: false
+theme_set(theme_classic())
+```
+
+:::
+
+::: {.fragment style="padding-top: 0.5em;"}
+
+Further, you can customize the theme by using `theme_update()` function. For example, you can change the text size, font family, and color.
+
+```{r}
+#| label: update-theme
+#| echo: true
+#| results: hide
+# install.packages("extrafont") # this may take a while
+extrafont::loadfonts() 
+theme_update(text = element_text(
+    size=25,
+    family="Helvetica",
+    color = "blue"))
+
+
+```
+
+:::
+
+::: {.content-hidden unless-profile="book"}
+
+::: {.callout-warning title="Or going crazy with a custom theme..." icon="true" collapse="true"}
+
+
+```{r}
+#| label: setTheme-fun
+#| results: hide
+#extrafont::loadfonts()
+myTheme <- theme_set(theme_classic()) +
+  theme(
+    text = element_text(
+        size = 25, 
+        family = "Comic Sans MS",
+        color = "pink"),
+    panel.grid.major.y = element_line(
+      color = "red",
+      linewidth = 0.5,
+      linetype = 2
+    )
+  )
+```
+
+:::
+
+:::
+
+
+::: {.content-hidden unless-profile="slides"}
+
+### Example Data
+
+:::
+
+::: {.content-hidden unless-profile="book"}
+
+## Example Data
+
+For this exercise, we use (again) a subset of the HSB dataset which is provided in the `merTools` package [@R-merTools]:
+
+::: {.column-margin}
+
+For more details on the dataset, see Chapter [High School and Beyond](../example-data/data-hsb.qmd).
+
+:::
+
+:::
+
+```{r}
+#| label: import-data
+#| echo: true
+#| output-location: column-fragment
+dat <- merTools::hsb
+head(dat[,1:7])
+```
+
+
+
+## Mapping Plot Types to `geom_*` Layers
+
+::: {.content-hidden unless-profile="book"}
+
+To create different types of plots, you need to use different `geom_*` layers. Here are some examples:
+
+:::
+
+- bar chart &rarr; `geom_bar()` ([jump](#barplot))
+- histogram &rarr; `geom_histogram()` ([jump](#hist))
+- boxplot &rarr; `geom_boxplot()` ([jump](#boxplot))
+- line chart &rarr; `geom_line()`
+- scatter plot &rarr; `geom_point()` ([jump](#scatterplot))
+- text labels &rarr; `geom_text()`
+- ...
+
+
+
+## Bar Chart {#barplot}
+
+### `geom_bar` layer (basic)
+
+
+```{r}
+#| label: bar-0
+#| echo: true
+#| code-line-numbers: "|3"
+#| code-annotations: true
+#| output-location: column
+#| results: hold
+p_bp <- ggplot(data = dat, #<0>
+                aes(x = factor(female))) + #<0>
+            geom_bar() #<1>
+```
+
+0. Provide data and aesthetics mappings (see [Key Components](#key-comp-ggplot))
+1. Add the `geom_bar()` layer
+
+
+
+::: {.content-hidden unless-profile="slides"}
+
+### `geom_bar` layer (basic, print)
+
+:::
+
+```{r}
+#| label: bar-0p
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: false
+print(p_bp)
+```
+
+
+### `geom_bar` layer (customized) 
+
+```{r}
+#| label: bar-1
+#| echo: true
+#| code-line-numbers: "3|4|5|6-8|9|"
+#| output-location: column
+p_bp_c <- ggplot(data = dat,
+                aes(x = factor(female))) +
+            geom_bar(color = "blue", #<1>
+                     linewidth = 1.5, #<2>
+                     fill = "pink") + #<3>
+            scale_x_discrete( #<4>
+               label = c("0" = "Male", #<4>
+                         "1" = "Female")) + #<4>
+            labs(y = "Count", x = "Gender") # <5>
+
+```
+
+1. `color` argument: Customize color of boarder
+2. `linewidth` argument: Customize size of boarder
+3. `fill` argument: Customize color of bars 
+4. `label` argument  in `scale_x_discrete` function can be used to provide labels for categories
+5. `labs` function:  Customize text on x- and y-axes
+
+::: {.content-hidden unless-profile="slides"}
+
+## `geom_bar` layer (customized, print) 
+
+:::
+
+```{r}
+#| label: bar-1p
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: false
+print(p_bp_c)
+```
+
+
+## Histogram {#hist}
+
+### `geom_histogram` layer (basic)
+
+```{r}
+#| label: hist-0
+#| code-line-numbers: "|3"
+#| code-annotations: below
+#| output-location: column
+
+p_hist <- ggplot(data = dat, # <0>
+                 aes(x = mathach)) + # <0>
+            geom_histogram() # <1>
+     
+```
+
+0. Provide data and aesthetics mappings (see key components [slide](#key-comp-ggplot))
+1. Add the `geom_histogram()`
+
+::: {.content-hidden unless-profile="slides"}
+
+### `geom_histogram` layer (basic, print)
+
+:::
+
+```{r}
+#| label: hist-0p
+#| echo: true
+#| code-line-numbers: false
+#| code-fold: true
+print(p_hist)
+```
+
+
+
+### `geom_histogram` layer (customized) {#hist-cust}
+
+```{r}
+#| label: hist-1
+#| code-line-numbers: "|4|5|6|7|8-11|"
+#| output-location: column
+p_hist_c <- ggplot(data = dat,  
+                   aes(x = mathach)) + 
+                geom_histogram(  
+                    color = "black", # <1>
+                    fill = "white", # <2>
+                    bins = 30, # <3>
+                    binwidth = 1.5 # <4>
+                    ) + 
+                labs(y = "Count", # <5>
+                     x = "Math Achievement", # <5>
+                     title = "My nice histogram") # <5>       
+```
+
+1. `color`: argument for color of the boarders of the bars
+2. `fill`: argument for the color of the bars (do not use it together with the fill argument in the `aes()`!) 
+3. `bins` argument: Number of bins
+4. `binwidth` argument: The width of the bins
+5. `labs` layer: Provide names of axis and title
+
+
+::: {.content-hidden unless-profile="slides"}
+
+### `geom_histogram` layer (customized, print)
+
+:::
+
+```{r}
+#| label: hist-1p
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: false
+print(p_hist_c)
+```
+
+
+## Scatterplot {#scatterplot}
+
+### `geom_point` layer (basic)
+
+```{r}
+#| label: sct-0
+#| code-line-numbers: "|3"
+#| output-location: column
+
+p_scp <- ggplot(data = dat, # <0>
+                aes(y = mathach, x = ses)) + # <0>
+            geom_point() # <1>
+     
+```
+
+0. Provide data and aesthetics mappings (see key components [slide](#key-comp-ggplot))
+1. Add the `geom_point()`
+
+::: {.content-hidden unless-profile="slides"}
+
+### `geom_point` layer (basic, print)
+
+:::
+
+```{r}
+#| label: sct-0p
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: false
+print(p_scp)
+```
+
+
+
+### `geom_point` layer (customized)
+
+```{r}
+#| label: sct-1
+#| code-line-numbers: "4|5|6|7|8-11|"
+#| output-location: column
+p_scp_c <- ggplot(data = dat,  
+                  aes(y = mathach, x = ses)) + 
+            geom_point(  
+                color = "black", # <1>
+                fill = "white", # <2>
+                size = 3, # <3>
+                shape = 21 # <4>
+                ) + 
+            labs(y = "Math Achievement", # <5>
+                 x = "Socioeconomic status", # <5>
+                 title = "A scatterplot") # <5>       
+```
+
+1. `color`: argument for color of the boarders of the points (if `fill` $\neq$ `NULL`).
+2. `fill`: argument for the color of the bars (do not use it together with the fill argument in the `aes()`!). 
+3. `size` argument: Size of the points.
+4. `shape` argument: Shape of the points (for more see <https://ggplot2.tidyverse.org/articles/ggplot2-specs.html>).
+5. `labs` layer: Provide names of axis and title.
+
+::: {.content-hidden unless-profile="slides"}
+
+### `geom_point` layer (customized, print)
+
+:::
+
+```{r}
+#| label: sct-1p
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: false
+print(p_scp_c)
+```
+
+### `geom_point` layer (colored by group)
+
+```{r}
+#| label: sct-2
+#| code-line-numbers: "|3|4|5|6|7|8-9|10-13|"
+#| output-location: column
+p_scp_c2 <- ggplot(data = dat,  
+                   aes(y = mathach, x = ses)) + 
+                geom_point(aes(color = factor(female)), #<1>
+                           alpha = .5, #<2>
+                           size = 2.5) + #<3>
+                scale_color_manual( #<4>
+                  values = c("black", "red"), #<5>
+                  labels = c("0" = "Male", #<6>
+                             "1" = "Female")) + #<6>
+                labs(y = "Math Achievement", # <7>
+                     x = "Socioeconomic status", # <7>
+                     color = "Gender", # <7>
+                     title = "A customized scatterplot") # <7>       
+```
+
+1. Use another *aesthetic mappings* (`aes()` function) to provide information which points should be colored.
+2. `alpha` argument: Refers to the opacity of the points.
+3. `size` argument: Size of the points.
+4. `scale_color_manual` layer: Customize the discrete `color` scale.
+5. `values` argument: Change color
+6. `labels` argument: Provide labels (alternatively, you could use the `factor()` function in advance)
+7. `labs` layer: Provide names of axis, legend title, & title
+
+::: {.content-hidden unless-profile="slides"}
+
+### `geom_point` layer (colored by group, print)
+
+:::
+
+```{r}
+#| label: sct-2p
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: false
+print(p_scp_c2)
+```
+
+## Boxplot {#boxplot}
+
+### `geom_boxplot` layer (basic)
+
+```{r}
+#| label: box-0
+#| code-line-numbers: "|3"
+#| output-location: column
+
+p_boxp <- ggplot(data = dat, # <0>
+                aes(y = mathach,  # <0>
+                    x = factor(schtype))) + # <0>
+            geom_boxplot() # <1>
+     
+```
+
+0. Provide data and aesthetics mappings (see key components [slide](#key-comp-ggplot)).
+1. Add the `geom_boxplot()`.
+
+::: {.content-hidden unless-profile="slides"}
+
+## `geom_boxplot` layer (basic, print)
+
+:::
+
+```{r}
+#| label: box-0p
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: false
+print(p_boxp)
+```
+
+
+
+### `geom_boxplot` layer (customized)
+
+```{r}
+#| label: box-1
+#| code-line-numbers: "4|5|6|7|8-11|"
+#| output-location: column
+p_boxp_c <- ggplot(data = dat,  
+                   aes(y = mathach,
+                       x = factor(schtype))) + 
+                geom_boxplot(  
+                    color = "#00ff00", # <1>
+                    fill = "salmon", # <2>
+                    size = 3, # <3>
+                    width = 0.5, # <4>
+                    staplewidth = 0.25) + # <5>
+                labs(y = "Math Achievement", # <6>
+                     x = "School Type", # <6>
+                     title = "A customized boxplot") # <6>       
+```
+
+1. `color`: argument for color of the boarders of the points (if `fill` $\neq$ `NULL`).
+2. `fill`: argument for the color of the bars (do not use it together with the fill argument in the `aes()`!). 
+3. `size` argument: Size boarders.
+4. `width` argument: Controls width of the bars.
+5. `staplewidth` argument: Controls the width of the staples.
+6. `labs` layer: Provide names of axis and title.
+
+::: {.content-hidden unless-profile="slides"}
+
+### `geom_boxplot` layer (customized, print)
+
+:::
+
+```{r}
+#| label: box-1p
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: false
+print(p_boxp_c)
+```
+
+
+## More Adjustment Options
+
+### Facetting plots
+
+Facetting allows to split data into subsets and display them across different plots. This can be done with the `facet_wrap()` or `facet_grid()` functions. To demonstrate the `facet_grid()` option, I used the customized histogram (`p_hist_c`) which was generated [here](#hist-cust).
+
+::: {.content-hidden when-profile="book"}
+
+::: {.r-stack}
+
+::: {.fragment}
+
+```{r}
+#| label: demo-facet-grid-row
+#| code-line-numbers: "2"
+#| output-location: column
+p_hist_c +
+     facet_grid(rows = vars(female)) +
+     labs(title = paste(
+          "Overwrite the title", 
+          "to demonstrate facet_grid",
+          "(row dimension)", 
+          sep = "\n")
+          )
+```
+
+:::
+
+::: {.fragment}
+
+```{r}
+#| label: demo-facet-grid-col
+#| code-line-numbers: "2"
+#| output-location: column
+p_hist_c +
+     facet_grid(cols = vars(female)) +
+     labs(title = paste(
+          "Overwrite the title", 
+          "to demonstrate facet_grid",
+          "(column dimension)", 
+          sep = "\n")
+          )
+```
+
+:::
+
+::: {.fragment}
+
+```{r}
+#| label: demo-facet-grid-col-row
+#| code-line-numbers: "2-3"
+#| output-location: column
+p_hist_c +
+     facet_grid(cols = vars(female),
+                rows = vars(minority)) +
+     labs(title = paste(
+          "Overwrite the title", 
+          "to demonstrate facet_grid",
+          "(column and row dimension)", 
+          sep = "\n")
+          )
+```
+
+:::
+
+:::
+
+:::
+
+::: {.content-hidden when-profile="slides"}
+
+::: {.panel-tabset}
+
+#### row dimension
+
+```{r}
+#| label: demo-facet-grid-row-book
+#| code-line-numbers: "2"
+#| output-location: column
+p_hist_c +
+     facet_grid(rows = vars(female)) +
+     labs(title = paste(
+          "Overwrite the title", 
+          "to demonstrate facet_grid",
+          "(row dimension)", 
+          sep = "\n")
+          )
+```
+
+#### column dimension
+
+```{r}
+#| label: demo-facet-grid-col-book
+#| code-line-numbers: "2"
+#| output-location: column
+p_hist_c +
+     facet_grid(cols = vars(female)) +
+     labs(title = paste(
+          "Overwrite the title", 
+          "to demonstrate facet_grid",
+          "(column dimension)", 
+          sep = "\n")
+          )
+```
+
+
+#### row and column dimension
+
+
+```{r}
+#| label: demo-facet-grid-col-row-book
+#| code-line-numbers: "2-3"
+#| output-location: column
+p_hist_c +
+     facet_grid(cols = vars(female),
+                rows = vars(minority)) +
+     labs(title = paste(
+          "Overwrite the title", 
+          "to demonstrate facet_grid",
+          "(column and row dimension)", 
+          sep = "\n")
+          )
+```
+
+:::
+
+:::
+
+### Labeling factors
+
+Labeling factors may helpful for data visualization (not necessarily for data analyses!), because `ggplot2` then directly access the labels. This can be done with the `levels` and `labels` arguments of the `factor()` function. 
+
+
+::: {.fragment}
+
+```{r}
+#| label: label-factor-1
+#| code-line-numbers: 1|2|3-4|
+#| output-location: column
+dat$Gender <- factor(dat$female, # <1>
+                     levels = c(0, 1), # <2>
+                     labels = c("male", # <3>
+                                "female")) # <3>
+
+```
+
+1. Use `factor()` function and access variable.
+2. Provide the original levels in the `levels` argument.
+3. Provide "publication-ready" labels in the `labels` argument.
+
+:::
+
+
+
+::: {.fragment}
+
+Check with the `str()` function.
+
+```{r}
+#| label: label-factor-2
+#| code-line-numbers: false
+#| output-location: column-fragment
+str(dat$Gender) # <1>
+```
+
+:::
+
+::: {.content-hidden when-profile="slides"}
+
+::: {.panel-tabset}
+
+### Original `female` variable
+
+```{r}
+#| label: demo-label-factor-1-book
+#| code-fold: true
+ggplot(data = dat,
+       aes(y = mathach, x = factor(female))) +
+     geom_boxplot(width = .2,
+                  staplewidth = .2) +
+     labs(title = "Boxplot with original female variable")
+
+```
+
+### Transformed `Gender` variable 
+
+```{r}
+#| label: demo-label-factor-2-book
+#| code-fold: true
+ggplot(data = dat,
+       aes(y = mathach, x = Gender)) +
+     geom_boxplot(width = .2,
+                  staplewidth = .2) +
+     labs(title = "Boxplot with transformed female variable Gender")
+```
+
+:::
+
+:::
+
+::: {.content-hidden when-profile="book"}
+
+### Labeling factors: Original `female` variable
+
+```{r}
+#| label: demo-label-factor-1
+#| code-fold: true
+ggplot(data = dat,
+       aes(y = mathach, x = factor(female))) +
+     geom_boxplot(width = .2,
+                  staplewidth = .2) +
+     labs(title = "Boxplot with original female variable (that is declared as numeric)")
+
+```
+
+### Labeling factors: Transformed `Gender` variable 
+
+```{r}
+#| label: demo-label-factor-2
+#| code-fold: true
+ggplot(data = dat,
+       aes(y = mathach, x = Gender)) +
+     geom_boxplot(width = .2,
+                  staplewidth = .2) +
+     labs(title = "Boxplot with transformed female variable Gender (that is a factor)")
+```
+
+:::
+
+::: {.content-hidden when-profile="book"}
+
+# Questions?
+
+## References {#graph-ref-reveal}
+
+:::
+
+
+
+::: {.content-hidden when-profile="slides"}
+
+## Some Questions
+
+::: {.callout-note title="This is work in progress..."}
+
+... and needs to be completed.
+
+:::
+
+```{r}
+#| label: graph-q-1
+#| echo: false
+#| 
+graph_q1 <- webexercises::mcq(
+  opts = c("1", "2", "4", answer = "3")
+)
+```
+
+How many components are required to create a ggplot2 visualization? `r graph_q1`
+
+```{r}
+#| label: graph-q-2
+#| echo: false
+
+graph_q2 <- webexercises::mcq(
+  opts = c("|>", "-", "%>%", answer = "+")
+)
+```
+
+How do you add a new layer to a ggplot2 plot? `r graph_q2`
+
+:::
+
