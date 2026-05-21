@@ -1020,7 +1020,7 @@ ggplot(data = dat,
 #| echo: false
 #| 
 graph_q1 <- webexercises::mcq(
-  opts = c("1", "2", "4", answer = "3")
+  opts = c("1", "2", answer = "3", "4")
 )
 ```
 
