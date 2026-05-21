@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-03-04">
 
-<title>8&nbsp; Graphical Visualization (with ggplot2) – Coding and Teaching Library</title>
+<title>9&nbsp; Graphical Visualization (with ggplot2) – Coding and Teaching Library</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,7 +87,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../working-with-data/descriptive-statistics.html" rel="next">
-<link href="../example-data/data-hsb.html" rel="prev">
+<link href="../example-data/data-pre-post.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -170,7 +170,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../working-with-data/graphical-visualization.html">Working with Data</a></li><li class="breadcrumb-item"><a href="../working-with-data/graphical-visualization.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Graphical Visualization (with <code>ggplot2</code>)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../working-with-data/graphical-visualization.html">Working with Data</a></li><li class="breadcrumb-item"><a href="../working-with-data/graphical-visualization.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Graphical Visualization (with <code>ggplot2</code>)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -271,6 +271,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">High School and Beyond</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../example-data/data-pre-post.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Simulated Pre- and Post-Test Data</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -285,19 +291,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../working-with-data/graphical-visualization.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Graphical Visualization (with <code>ggplot2</code>)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Graphical Visualization (with <code>ggplot2</code>)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../working-with-data/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../working-with-data/correlation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
   </div>
 </li>
       </ul>
@@ -319,51 +325,51 @@ window.Quarto = {
    
   <ul>
   <li><a href="#revealjs-presentation" id="toc-revealjs-presentation" class="nav-link active" data-scroll-target="#revealjs-presentation">Revealjs Presentation</a></li>
-  <li><a href="#purpose-of-data-visualizing" id="toc-purpose-of-data-visualizing" class="nav-link" data-scroll-target="#purpose-of-data-visualizing"><span class="header-section-number">8.1</span> Purpose of Data Visualizing</a></li>
-  <li><a href="#some-example-diagrams" id="toc-some-example-diagrams" class="nav-link" data-scroll-target="#some-example-diagrams"><span class="header-section-number">8.2</span> (Some) Example Diagrams</a></li>
-  <li><a href="#ggplot2-pkg" id="toc-ggplot2-pkg" class="nav-link" data-scroll-target="#ggplot2-pkg"><span class="header-section-number">8.3</span> The <code>ggplot2</code> package</a>
+  <li><a href="#purpose-of-data-visualizing" id="toc-purpose-of-data-visualizing" class="nav-link" data-scroll-target="#purpose-of-data-visualizing"><span class="header-section-number">9.1</span> Purpose of Data Visualizing</a></li>
+  <li><a href="#some-example-diagrams" id="toc-some-example-diagrams" class="nav-link" data-scroll-target="#some-example-diagrams"><span class="header-section-number">9.2</span> (Some) Example Diagrams</a></li>
+  <li><a href="#ggplot2-pkg" id="toc-ggplot2-pkg" class="nav-link" data-scroll-target="#ggplot2-pkg"><span class="header-section-number">9.3</span> The <code>ggplot2</code> package</a>
   <ul class="collapse">
-  <li><a href="#key-comp-ggplot" id="toc-key-comp-ggplot" class="nav-link" data-scroll-target="#key-comp-ggplot"><span class="header-section-number">8.3.1</span> Key Components</a></li>
-  <li><a href="#getting-started-with-ggplot2" id="toc-getting-started-with-ggplot2" class="nav-link" data-scroll-target="#getting-started-with-ggplot2"><span class="header-section-number">8.3.2</span> Getting Started with <code>ggplot2</code></a></li>
+  <li><a href="#key-comp-ggplot" id="toc-key-comp-ggplot" class="nav-link" data-scroll-target="#key-comp-ggplot"><span class="header-section-number">9.3.1</span> Key Components</a></li>
+  <li><a href="#getting-started-with-ggplot2" id="toc-getting-started-with-ggplot2" class="nav-link" data-scroll-target="#getting-started-with-ggplot2"><span class="header-section-number">9.3.2</span> Getting Started with <code>ggplot2</code></a></li>
   </ul></li>
-  <li><a href="#example-data-1" id="toc-example-data-1" class="nav-link" data-scroll-target="#example-data-1"><span class="header-section-number">8.4</span> Example Data</a></li>
-  <li><a href="#mapping-plot-types-to-geom_-layers" id="toc-mapping-plot-types-to-geom_-layers" class="nav-link" data-scroll-target="#mapping-plot-types-to-geom_-layers"><span class="header-section-number">8.5</span> Mapping Plot Types to <code>geom_*</code> Layers</a></li>
-  <li><a href="#barplot" id="toc-barplot" class="nav-link" data-scroll-target="#barplot"><span class="header-section-number">8.6</span> Bar Chart</a>
+  <li><a href="#example-data-1" id="toc-example-data-1" class="nav-link" data-scroll-target="#example-data-1"><span class="header-section-number">9.4</span> Example Data</a></li>
+  <li><a href="#mapping-plot-types-to-geom_-layers" id="toc-mapping-plot-types-to-geom_-layers" class="nav-link" data-scroll-target="#mapping-plot-types-to-geom_-layers"><span class="header-section-number">9.5</span> Mapping Plot Types to <code>geom_*</code> Layers</a></li>
+  <li><a href="#barplot" id="toc-barplot" class="nav-link" data-scroll-target="#barplot"><span class="header-section-number">9.6</span> Bar Chart</a>
   <ul class="collapse">
-  <li><a href="#geom_bar-layer-basic" id="toc-geom_bar-layer-basic" class="nav-link" data-scroll-target="#geom_bar-layer-basic"><span class="header-section-number">8.6.1</span> <code>geom_bar</code> layer (basic)</a></li>
-  <li><a href="#geom_bar-layer-customized" id="toc-geom_bar-layer-customized" class="nav-link" data-scroll-target="#geom_bar-layer-customized"><span class="header-section-number">8.6.2</span> <code>geom_bar</code> layer (customized)</a></li>
+  <li><a href="#geom_bar-layer-basic" id="toc-geom_bar-layer-basic" class="nav-link" data-scroll-target="#geom_bar-layer-basic"><span class="header-section-number">9.6.1</span> <code>geom_bar</code> layer (basic)</a></li>
+  <li><a href="#geom_bar-layer-customized" id="toc-geom_bar-layer-customized" class="nav-link" data-scroll-target="#geom_bar-layer-customized"><span class="header-section-number">9.6.2</span> <code>geom_bar</code> layer (customized)</a></li>
   </ul></li>
-  <li><a href="#hist" id="toc-hist" class="nav-link" data-scroll-target="#hist"><span class="header-section-number">8.7</span> Histogram</a>
+  <li><a href="#hist" id="toc-hist" class="nav-link" data-scroll-target="#hist"><span class="header-section-number">9.7</span> Histogram</a>
   <ul class="collapse">
-  <li><a href="#geom_histogram-layer-basic" id="toc-geom_histogram-layer-basic" class="nav-link" data-scroll-target="#geom_histogram-layer-basic"><span class="header-section-number">8.7.1</span> <code>geom_histogram</code> layer (basic)</a></li>
-  <li><a href="#hist-cust" id="toc-hist-cust" class="nav-link" data-scroll-target="#hist-cust"><span class="header-section-number">8.7.2</span> <code>geom_histogram</code> layer (customized)</a></li>
+  <li><a href="#geom_histogram-layer-basic" id="toc-geom_histogram-layer-basic" class="nav-link" data-scroll-target="#geom_histogram-layer-basic"><span class="header-section-number">9.7.1</span> <code>geom_histogram</code> layer (basic)</a></li>
+  <li><a href="#hist-cust" id="toc-hist-cust" class="nav-link" data-scroll-target="#hist-cust"><span class="header-section-number">9.7.2</span> <code>geom_histogram</code> layer (customized)</a></li>
   </ul></li>
-  <li><a href="#scatterplot" id="toc-scatterplot" class="nav-link" data-scroll-target="#scatterplot"><span class="header-section-number">8.8</span> Scatterplot</a>
+  <li><a href="#scatterplot" id="toc-scatterplot" class="nav-link" data-scroll-target="#scatterplot"><span class="header-section-number">9.8</span> Scatterplot</a>
   <ul class="collapse">
-  <li><a href="#geom_point-layer-basic" id="toc-geom_point-layer-basic" class="nav-link" data-scroll-target="#geom_point-layer-basic"><span class="header-section-number">8.8.1</span> <code>geom_point</code> layer (basic)</a></li>
-  <li><a href="#geom_point-layer-customized" id="toc-geom_point-layer-customized" class="nav-link" data-scroll-target="#geom_point-layer-customized"><span class="header-section-number">8.8.2</span> <code>geom_point</code> layer (customized)</a></li>
-  <li><a href="#geom_point-layer-colored-by-group" id="toc-geom_point-layer-colored-by-group" class="nav-link" data-scroll-target="#geom_point-layer-colored-by-group"><span class="header-section-number">8.8.3</span> <code>geom_point</code> layer (colored by group)</a></li>
+  <li><a href="#geom_point-layer-basic" id="toc-geom_point-layer-basic" class="nav-link" data-scroll-target="#geom_point-layer-basic"><span class="header-section-number">9.8.1</span> <code>geom_point</code> layer (basic)</a></li>
+  <li><a href="#geom_point-layer-customized" id="toc-geom_point-layer-customized" class="nav-link" data-scroll-target="#geom_point-layer-customized"><span class="header-section-number">9.8.2</span> <code>geom_point</code> layer (customized)</a></li>
+  <li><a href="#geom_point-layer-colored-by-group" id="toc-geom_point-layer-colored-by-group" class="nav-link" data-scroll-target="#geom_point-layer-colored-by-group"><span class="header-section-number">9.8.3</span> <code>geom_point</code> layer (colored by group)</a></li>
   </ul></li>
-  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot"><span class="header-section-number">8.9</span> Boxplot</a>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot"><span class="header-section-number">9.9</span> Boxplot</a>
   <ul class="collapse">
-  <li><a href="#geom_boxplot-layer-basic" id="toc-geom_boxplot-layer-basic" class="nav-link" data-scroll-target="#geom_boxplot-layer-basic"><span class="header-section-number">8.9.1</span> <code>geom_boxplot</code> layer (basic)</a></li>
-  <li><a href="#geom_boxplot-layer-customized" id="toc-geom_boxplot-layer-customized" class="nav-link" data-scroll-target="#geom_boxplot-layer-customized"><span class="header-section-number">8.9.2</span> <code>geom_boxplot</code> layer (customized)</a></li>
+  <li><a href="#geom_boxplot-layer-basic" id="toc-geom_boxplot-layer-basic" class="nav-link" data-scroll-target="#geom_boxplot-layer-basic"><span class="header-section-number">9.9.1</span> <code>geom_boxplot</code> layer (basic)</a></li>
+  <li><a href="#geom_boxplot-layer-customized" id="toc-geom_boxplot-layer-customized" class="nav-link" data-scroll-target="#geom_boxplot-layer-customized"><span class="header-section-number">9.9.2</span> <code>geom_boxplot</code> layer (customized)</a></li>
   </ul></li>
-  <li><a href="#more-adjustment-options" id="toc-more-adjustment-options" class="nav-link" data-scroll-target="#more-adjustment-options"><span class="header-section-number">8.10</span> More Adjustment Options</a>
+  <li><a href="#more-adjustment-options" id="toc-more-adjustment-options" class="nav-link" data-scroll-target="#more-adjustment-options"><span class="header-section-number">9.10</span> More Adjustment Options</a>
   <ul class="collapse">
-  <li><a href="#facetting-plots" id="toc-facetting-plots" class="nav-link" data-scroll-target="#facetting-plots"><span class="header-section-number">8.10.1</span> Facetting plots</a></li>
-  <li><a href="#labeling-factors" id="toc-labeling-factors" class="nav-link" data-scroll-target="#labeling-factors"><span class="header-section-number">8.10.2</span> Labeling factors</a></li>
+  <li><a href="#facetting-plots" id="toc-facetting-plots" class="nav-link" data-scroll-target="#facetting-plots"><span class="header-section-number">9.10.1</span> Facetting plots</a></li>
+  <li><a href="#labeling-factors" id="toc-labeling-factors" class="nav-link" data-scroll-target="#labeling-factors"><span class="header-section-number">9.10.2</span> Labeling factors</a></li>
   </ul></li>
-  <li><a href="#some-questions" id="toc-some-questions" class="nav-link" data-scroll-target="#some-questions"><span class="header-section-number">8.11</span> Some Questions</a></li>
+  <li><a href="#some-questions" id="toc-some-questions" class="nav-link" data-scroll-target="#some-questions"><span class="header-section-number">9.11</span> Some Questions</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/RiegerSven/library/edit/main/working-with-data/graphical-visualization.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RiegerSven/library/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/RiegerSven/library/blob/main/working-with-data/graphical-visualization.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../working-with-data/graphical-visualization.html">Working with Data</a></li><li class="breadcrumb-item"><a href="../working-with-data/graphical-visualization.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Graphical Visualization (with <code>ggplot2</code>)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../working-with-data/graphical-visualization.html">Working with Data</a></li><li class="breadcrumb-item"><a href="../working-with-data/graphical-visualization.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Graphical Visualization (with <code>ggplot2</code>)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Graphical Visualization (with <code>ggplot2</code>)</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Graphical Visualization (with <code>ggplot2</code>)</span></h1>
 </div>
 
 
@@ -399,8 +405,8 @@ window.Quarto = {
 <p><iframe class="responsive-iframe" src="../_slides/working-with-data/graphical-visualization.html"></iframe></p>
 </div>
 </section>
-<section id="purpose-of-data-visualizing" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="purpose-of-data-visualizing"><span class="header-section-number">8.1</span> Purpose of Data Visualizing</h2>
+<section id="purpose-of-data-visualizing" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="purpose-of-data-visualizing"><span class="header-section-number">9.1</span> Purpose of Data Visualizing</h2>
 <p>The purpose of data visualizing is versatile as it…</p>
 <div class="incremental">
 <ul class="incremental">
@@ -412,8 +418,8 @@ window.Quarto = {
 </ul>
 </div>
 </section>
-<section id="some-example-diagrams" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="some-example-diagrams"><span class="header-section-number">8.2</span> (Some) Example Diagrams</h2>
+<section id="some-example-diagrams" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="some-example-diagrams"><span class="header-section-number">9.2</span> (Some) Example Diagrams</h2>
 <div class="quarto-layout-panel" data-layout="[[1,1,1],[1,1,1]]">
 <div class="quarto-layout-row">
 <div class="fragment quarto-layout-cell" data-fragment-index="1" style="flex-basis: 33.3%;justify-content: flex-start;">
@@ -479,8 +485,8 @@ window.Quarto = {
 <p>But there are more such as Dot plots, venn diagrams, maps, networks, &amp; many more…!</p>
 </div>
 </section>
-<section id="ggplot2-pkg" class="level2 page-columns page-full" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="ggplot2-pkg"><span class="header-section-number">8.3</span> The <code>ggplot2</code> package</h2>
+<section id="ggplot2-pkg" class="level2 page-columns page-full" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="ggplot2-pkg"><span class="header-section-number">9.3</span> The <code>ggplot2</code> package</h2>
 <p>First of all, there are other graphical R packages such as:</p>
 <ul>
 <li>the <code>base</code> <span class="citation" data-cites="R-base">(<a href="../references.html#ref-R-base" role="doc-biblioref">R Core Team, 2025</a>)</span> solution (e.g., <code>plot()</code> function)</li>
@@ -504,8 +510,8 @@ window.Quarto = {
 <div class="fragment">
 <p>see <span class="citation" data-cites="wickham2011">Wickham (<a href="../references.html#ref-wickham2011" role="doc-biblioref">2011</a>)</span></p>
 </div>
-</div></div><section id="key-comp-ggplot" class="level3 page-columns page-full" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="key-comp-ggplot"><span class="header-section-number">8.3.1</span> Key Components</h3>
+</div></div><section id="key-comp-ggplot" class="level3 page-columns page-full" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="key-comp-ggplot"><span class="header-section-number">9.3.1</span> Key Components</h3>
 <div class="fragment">
 <p>Every <code>ggplot</code> needs <span class="fragment highlight-blue">3 components</span> to produce a plot:</p>
 </div>
@@ -551,8 +557,8 @@ Note
 <p><a href="https://ggplot2-book.org/getting-started" class="uri">https://ggplot2-book.org/getting-started</a></p>
 </div>
 </div></div></section>
-<section id="getting-started-with-ggplot2" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="getting-started-with-ggplot2"><span class="header-section-number">8.3.2</span> Getting Started with <code>ggplot2</code></h3>
+<section id="getting-started-with-ggplot2" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="getting-started-with-ggplot2"><span class="header-section-number">9.3.2</span> Getting Started with <code>ggplot2</code></h3>
 <div class="fragment">
 <p>First, install and load the package.</p>
 <div class="cell" data-output-location="column">
@@ -609,8 +615,8 @@ Note
 </div>
 </section>
 </section>
-<section id="example-data-1" class="level2 page-columns page-full" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="example-data-1"><span class="header-section-number">8.4</span> Example Data</h2>
+<section id="example-data-1" class="level2 page-columns page-full" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="example-data-1"><span class="header-section-number">9.4</span> Example Data</h2>
 <p>For this exercise, we use (again) a subset of the HSB dataset which is provided in the <code>merTools</code> package <span class="citation" data-cites="R-merTools">(<a href="../references.html#ref-R-merTools" role="doc-biblioref">Knowles &amp; Frederick, 2025</a>)</span>:</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
@@ -629,8 +635,8 @@ Note
 </div>
 </div>
 </section>
-<section id="mapping-plot-types-to-geom_-layers" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="mapping-plot-types-to-geom_-layers"><span class="header-section-number">8.5</span> Mapping Plot Types to <code>geom_*</code> Layers</h2>
+<section id="mapping-plot-types-to-geom_-layers" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="mapping-plot-types-to-geom_-layers"><span class="header-section-number">9.5</span> Mapping Plot Types to <code>geom_*</code> Layers</h2>
 <p>To create different types of plots, you need to use different <code>geom_*</code> layers. Here are some examples:</p>
 <ul>
 <li>bar chart → <code>geom_bar()</code> (<a href="#barplot">jump</a>)</li>
@@ -642,10 +648,10 @@ Note
 <li>…</li>
 </ul>
 </section>
-<section id="barplot" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="barplot"><span class="header-section-number">8.6</span> Bar Chart</h2>
-<section id="geom_bar-layer-basic" class="level3" data-number="8.6.1">
-<h3 data-number="8.6.1" class="anchored" data-anchor-id="geom_bar-layer-basic"><span class="header-section-number">8.6.1</span> <code>geom_bar</code> layer (basic)</h3>
+<section id="barplot" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="barplot"><span class="header-section-number">9.6</span> Bar Chart</h2>
+<section id="geom_bar-layer-basic" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="geom_bar-layer-basic"><span class="header-section-number">9.6.1</span> <code>geom_bar</code> layer (basic)</h3>
 <div class="cell" data-code-annotations="true" data-output-location="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="0" onclick="event.preventDefault();">0</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1"></a>p_bp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
 <span id="annotated-cell-2-2"><a href="#annotated-cell-2-2"></a>                <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(female))) <span class="sc">+</span></span>
@@ -677,8 +683,8 @@ Note
 </div>
 </div>
 </section>
-<section id="geom_bar-layer-customized" class="level3" data-number="8.6.2">
-<h3 data-number="8.6.2" class="anchored" data-anchor-id="geom_bar-layer-customized"><span class="header-section-number">8.6.2</span> <code>geom_bar</code> layer (customized)</h3>
+<section id="geom_bar-layer-customized" class="level3" data-number="9.6.2">
+<h3 data-number="9.6.2" class="anchored" data-anchor-id="geom_bar-layer-customized"><span class="header-section-number">9.6.2</span> <code>geom_bar</code> layer (customized)</h3>
 <div class="cell" data-output-location="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1"></a>p_bp_c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
 <span id="annotated-cell-4-2"><a href="#annotated-cell-4-2"></a>                <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(female))) <span class="sc">+</span></span>
@@ -729,10 +735,10 @@ Note
 </div>
 </section>
 </section>
-<section id="hist" class="level2" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="hist"><span class="header-section-number">8.7</span> Histogram</h2>
-<section id="geom_histogram-layer-basic" class="level3" data-number="8.7.1">
-<h3 data-number="8.7.1" class="anchored" data-anchor-id="geom_histogram-layer-basic"><span class="header-section-number">8.7.1</span> <code>geom_histogram</code> layer (basic)</h3>
+<section id="hist" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="hist"><span class="header-section-number">9.7</span> Histogram</h2>
+<section id="geom_histogram-layer-basic" class="level3" data-number="9.7.1">
+<h3 data-number="9.7.1" class="anchored" data-anchor-id="geom_histogram-layer-basic"><span class="header-section-number">9.7.1</span> <code>geom_histogram</code> layer (basic)</h3>
 <div class="cell" data-code-annotations="below" data-output-location="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="0" onclick="event.preventDefault();">0</a><span id="annotated-cell-6-1" class="code-annotation-target"><a href="#annotated-cell-6-1"></a>p_hist <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
 <span id="annotated-cell-6-2"><a href="#annotated-cell-6-2"></a>                 <span class="fu">aes</span>(<span class="at">x =</span> mathach)) <span class="sc">+</span></span>
@@ -767,8 +773,8 @@ Note
 </div>
 </div>
 </section>
-<section id="hist-cust" class="level3" data-number="8.7.2">
-<h3 data-number="8.7.2" class="anchored" data-anchor-id="hist-cust"><span class="header-section-number">8.7.2</span> <code>geom_histogram</code> layer (customized)</h3>
+<section id="hist-cust" class="level3" data-number="9.7.2">
+<h3 data-number="9.7.2" class="anchored" data-anchor-id="hist-cust"><span class="header-section-number">9.7.2</span> <code>geom_histogram</code> layer (customized)</h3>
 <div class="cell" data-output-location="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1"></a>p_hist_c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> dat,  </span>
 <span id="annotated-cell-8-2"><a href="#annotated-cell-8-2"></a>                   <span class="fu">aes</span>(<span class="at">x =</span> mathach)) <span class="sc">+</span> </span>
@@ -821,10 +827,10 @@ Note
 </div>
 </section>
 </section>
-<section id="scatterplot" class="level2" data-number="8.8">
-<h2 data-number="8.8" class="anchored" data-anchor-id="scatterplot"><span class="header-section-number">8.8</span> Scatterplot</h2>
-<section id="geom_point-layer-basic" class="level3" data-number="8.8.1">
-<h3 data-number="8.8.1" class="anchored" data-anchor-id="geom_point-layer-basic"><span class="header-section-number">8.8.1</span> <code>geom_point</code> layer (basic)</h3>
+<section id="scatterplot" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="scatterplot"><span class="header-section-number">9.8</span> Scatterplot</h2>
+<section id="geom_point-layer-basic" class="level3" data-number="9.8.1">
+<h3 data-number="9.8.1" class="anchored" data-anchor-id="geom_point-layer-basic"><span class="header-section-number">9.8.1</span> <code>geom_point</code> layer (basic)</h3>
 <div class="cell" data-output-location="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-10"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-10" data-target-annotation="0" onclick="event.preventDefault();">0</a><span id="annotated-cell-10-1" class="code-annotation-target"><a href="#annotated-cell-10-1"></a>p_scp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
 <span id="annotated-cell-10-2"><a href="#annotated-cell-10-2"></a>                <span class="fu">aes</span>(<span class="at">y =</span> mathach, <span class="at">x =</span> ses)) <span class="sc">+</span></span>
@@ -856,8 +862,8 @@ Note
 </div>
 </div>
 </section>
-<section id="geom_point-layer-customized" class="level3" data-number="8.8.2">
-<h3 data-number="8.8.2" class="anchored" data-anchor-id="geom_point-layer-customized"><span class="header-section-number">8.8.2</span> <code>geom_point</code> layer (customized)</h3>
+<section id="geom_point-layer-customized" class="level3" data-number="9.8.2">
+<h3 data-number="9.8.2" class="anchored" data-anchor-id="geom_point-layer-customized"><span class="header-section-number">9.8.2</span> <code>geom_point</code> layer (customized)</h3>
 <div class="cell" data-output-location="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-12"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-12-1"><a href="#annotated-cell-12-1"></a>p_scp_c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> dat,  </span>
 <span id="annotated-cell-12-2"><a href="#annotated-cell-12-2"></a>                  <span class="fu">aes</span>(<span class="at">y =</span> mathach, <span class="at">x =</span> ses)) <span class="sc">+</span> </span>
@@ -909,8 +915,8 @@ Note
 </div>
 </div>
 </section>
-<section id="geom_point-layer-colored-by-group" class="level3" data-number="8.8.3">
-<h3 data-number="8.8.3" class="anchored" data-anchor-id="geom_point-layer-colored-by-group"><span class="header-section-number">8.8.3</span> <code>geom_point</code> layer (colored by group)</h3>
+<section id="geom_point-layer-colored-by-group" class="level3" data-number="9.8.3">
+<h3 data-number="9.8.3" class="anchored" data-anchor-id="geom_point-layer-colored-by-group"><span class="header-section-number">9.8.3</span> <code>geom_point</code> layer (colored by group)</h3>
 <div class="cell" data-output-location="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-14"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-14-1"><a href="#annotated-cell-14-1"></a>p_scp_c2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> dat,  </span>
 <span id="annotated-cell-14-2"><a href="#annotated-cell-14-2"></a>                   <span class="fu">aes</span>(<span class="at">y =</span> mathach, <span class="at">x =</span> ses)) <span class="sc">+</span> </span>
@@ -973,10 +979,10 @@ Note
 </div>
 </section>
 </section>
-<section id="boxplot" class="level2" data-number="8.9">
-<h2 data-number="8.9" class="anchored" data-anchor-id="boxplot"><span class="header-section-number">8.9</span> Boxplot</h2>
-<section id="geom_boxplot-layer-basic" class="level3" data-number="8.9.1">
-<h3 data-number="8.9.1" class="anchored" data-anchor-id="geom_boxplot-layer-basic"><span class="header-section-number">8.9.1</span> <code>geom_boxplot</code> layer (basic)</h3>
+<section id="boxplot" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="boxplot"><span class="header-section-number">9.9</span> Boxplot</h2>
+<section id="geom_boxplot-layer-basic" class="level3" data-number="9.9.1">
+<h3 data-number="9.9.1" class="anchored" data-anchor-id="geom_boxplot-layer-basic"><span class="header-section-number">9.9.1</span> <code>geom_boxplot</code> layer (basic)</h3>
 <div class="cell" data-output-location="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-16"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="0" onclick="event.preventDefault();">0</a><span id="annotated-cell-16-1" class="code-annotation-target"><a href="#annotated-cell-16-1"></a>p_boxp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
 <span id="annotated-cell-16-2"><a href="#annotated-cell-16-2"></a>                <span class="fu">aes</span>(<span class="at">y =</span> mathach,</span>
@@ -1009,8 +1015,8 @@ Note
 </div>
 </div>
 </section>
-<section id="geom_boxplot-layer-customized" class="level3" data-number="8.9.2">
-<h3 data-number="8.9.2" class="anchored" data-anchor-id="geom_boxplot-layer-customized"><span class="header-section-number">8.9.2</span> <code>geom_boxplot</code> layer (customized)</h3>
+<section id="geom_boxplot-layer-customized" class="level3" data-number="9.9.2">
+<h3 data-number="9.9.2" class="anchored" data-anchor-id="geom_boxplot-layer-customized"><span class="header-section-number">9.9.2</span> <code>geom_boxplot</code> layer (customized)</h3>
 <div class="cell" data-output-location="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-18"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-18-1"><a href="#annotated-cell-18-1"></a>p_boxp_c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> dat,  </span>
 <span id="annotated-cell-18-2"><a href="#annotated-cell-18-2"></a>                   <span class="fu">aes</span>(<span class="at">y =</span> mathach,</span>
@@ -1068,10 +1074,10 @@ Note
 </div>
 </section>
 </section>
-<section id="more-adjustment-options" class="level2" data-number="8.10">
-<h2 data-number="8.10" class="anchored" data-anchor-id="more-adjustment-options"><span class="header-section-number">8.10</span> More Adjustment Options</h2>
-<section id="facetting-plots" class="level3" data-number="8.10.1">
-<h3 data-number="8.10.1" class="anchored" data-anchor-id="facetting-plots"><span class="header-section-number">8.10.1</span> Facetting plots</h3>
+<section id="more-adjustment-options" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="more-adjustment-options"><span class="header-section-number">9.10</span> More Adjustment Options</h2>
+<section id="facetting-plots" class="level3" data-number="9.10.1">
+<h3 data-number="9.10.1" class="anchored" data-anchor-id="facetting-plots"><span class="header-section-number">9.10.1</span> Facetting plots</h3>
 <p>Facetting allows to split data into subsets and display them across different plots. This can be done with the <code>facet_wrap()</code> or <code>facet_grid()</code> functions. To demonstrate the <code>facet_grid()</code> option, I used the customized histogram (<code>p_hist_c</code>) which was generated <a href="#hist-cust">here</a>.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">row dimension</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">column dimension</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">row and column dimension</a></li></ul>
@@ -1137,8 +1143,8 @@ Note
 </div>
 </div>
 </section>
-<section id="labeling-factors" class="level3" data-number="8.10.2">
-<h3 data-number="8.10.2" class="anchored" data-anchor-id="labeling-factors"><span class="header-section-number">8.10.2</span> Labeling factors</h3>
+<section id="labeling-factors" class="level3" data-number="9.10.2">
+<h3 data-number="9.10.2" class="anchored" data-anchor-id="labeling-factors"><span class="header-section-number">9.10.2</span> Labeling factors</h3>
 <p>Labeling factors may helpful for data visualization (not necessarily for data analyses!), because <code>ggplot2</code> then directly access the labels. This can be done with the <code>levels</code> and <code>labels</code> arguments of the <code>factor()</code> function.</p>
 <div class="fragment">
 <div class="cell" data-output-location="column">
@@ -1218,8 +1224,8 @@ Note
 </div>
 </section>
 </section>
-<section id="some-questions" class="level2" data-number="8.11">
-<h2 data-number="8.11" class="anchored" data-anchor-id="some-questions"><span class="header-section-number">8.11</span> Some Questions</h2>
+<section id="some-questions" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="some-questions"><span class="header-section-number">9.11</span> Some Questions</h2>
 <div class="callout callout-style-default callout-note callout-titled" title="This is work in progress...">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1233,7 +1239,7 @@ Note
 <p>… and needs to be completed.</p>
 </div>
 </div>
-<p>How many components are required to create a ggplot2 visualization? <select class="webex-select"><option value="blank"></option><option value="">1</option><option value="">2</option><option value="">4</option><option value="answer">3</option></select></p>
+<p>How many components are required to create a ggplot2 visualization? <select class="webex-select"><option value="blank"></option><option value="">1</option><option value="">2</option><option value="answer">3</option><option value="">4</option></select></p>
 <p>How do you add a new layer to a ggplot2 plot? <select class="webex-select"><option value="blank"></option><option value="">|&gt;</option><option value="">-</option><option value="">%&gt;%</option><option value="answer">+</option></select></p>
 
 
@@ -1879,13 +1885,13 @@ window.onload = function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../example-data/data-hsb.html" class="pagination-link" aria-label="High School and Beyond">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">High School and Beyond</span></span>
+      <a href="../example-data/data-pre-post.html" class="pagination-link" aria-label="Simulated Pre- and Post-Test Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Simulated Pre- and Post-Test Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../working-with-data/descriptive-statistics.html" class="pagination-link" aria-label="Descriptive Statistics">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

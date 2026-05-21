@@ -246,6 +246,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">High School and Beyond</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../example-data/data-pre-post.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Simulated Pre- and Post-Test Data</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -260,19 +266,19 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../working-with-data/graphical-visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Graphical Visualization (with <code>ggplot2</code>)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Graphical Visualization (with <code>ggplot2</code>)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../working-with-data/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../working-with-data/correlation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
   </div>
 </li>
       </ul>
@@ -533,51 +539,8 @@ Finally, we used a (`for`) loop to iterate over each path and executing the `dir
 ::: {.cell}
 
 ```{.r .cell-code}
-helpmecode::create_dirs
+?helpmecode::create_dirs
 ```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-function(directories, mode = "0755", showWarnings = TRUE) {
-
-  if (!is.character(directories)) {
-    stop("`directories` must be a character vector.", call. = FALSE)
-  }
-
-  if (anyNA(directories) || any(directories == "")) {
-    stop("`directories` contains invalid entries.", call. = FALSE)
-  }
-
-  directories <- normalizePath(directories, winslash = "/", mustWork = FALSE)
-
-  created <- character(0)
-
-  for (p in directories) {
-
-    ok <- dir.create(p, recursive = TRUE, mode = mode, showWarnings = showWarnings)
-
-    if (isTRUE(ok)) {
-      created <- c(created, p)
-    }
-
-    if (!ok && !dir.exists(p)) {
-      stop(sprintf("Failed to create directory: '%s'", p), call. = FALSE)
-    }
-  }
-
-  if (length(created) > 0) {
-    message("Directories created: ", paste(created, collapse = ", "))
-  }
-
-  invisible(directories)
-}
-<bytecode: 0x13670c090>
-<environment: namespace:helpmecode>
-```
-
-
-:::
 :::
 
  

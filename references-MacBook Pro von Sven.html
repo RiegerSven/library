@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Quarto and Zotero – Coding and Teaching Library</title>
+<title>References – Coding and Teaching Library</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,29 +20,47 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../software/setup-a-project-environment.html" rel="next">
-<link href="../software/introduction-to-quarto.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-cd11bcd1b437ec35c0dee322a6d3547e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ed01ea5ea51b7811f2dbb77888d42e76.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./example-data/data-hsb.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-cd11bcd1b437ec35c0dee322a6d3547e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ed01ea5ea51b7811f2dbb77888d42e76.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,8 +90,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="../include/webex.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -85,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../software/road-to-reproducible-projects.html">Software</a></li><li class="breadcrumb-item"><a href="../software/quarto-and-zotero.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Use Quarto with Zotero</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -100,9 +118,8 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Coding and Teaching Library</a> 
+      <a href="./">Coding and Teaching Library</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/RiegerSven/library" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -120,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -135,37 +152,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../software/road-to-reproducible-projects.html" class="sidebar-item-text sidebar-link">
+  <a href="./software/road-to-reproducible-projects.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Road To Reproducible Projects</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../software/choose-an-ide.html" class="sidebar-item-text sidebar-link">
+  <a href="./software/choose-an-ide.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose an IDE (for R)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../software/introduction-to-r.html" class="sidebar-item-text sidebar-link">
+  <a href="./software/introduction-to-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../software/introduction-to-quarto.html" class="sidebar-item-text sidebar-link">
+  <a href="./software/introduction-to-quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">A not so short introduction to Quarto</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../software/quarto-and-zotero.html" class="sidebar-item-text sidebar-link active">
+  <a href="./software/quarto-and-zotero.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Use Quarto with Zotero</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../software/setup-a-project-environment.html" class="sidebar-item-text sidebar-link">
+  <a href="./software/setup-a-project-environment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Setup a project environment</span></span></a>
   </div>
 </li>
@@ -182,50 +199,15 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../example-data/data-hsb.html" class="sidebar-item-text sidebar-link">
+  <a href="./example-data/data-hsb.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">High School and Beyond</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../example-data/data-pre-post.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Simulated Pre- and Post-Test Data</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Working with Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../working-with-data/graphical-visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Graphical Visualization (with <code>ggplot2</code>)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../working-with-data/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../working-with-data/correlation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../references.html" class="sidebar-item-text sidebar-link">
+  <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -240,9 +222,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../software/road-to-reproducible-projects.html">Software</a></li><li class="breadcrumb-item"><a href="../software/quarto-and-zotero.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Use Quarto with Zotero</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quarto and Zotero</span></h1>
+<h1 class="title">References</h1>
 </div>
 
 
@@ -250,27 +232,112 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Last updated on</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
-    </div>
-  </div>
   
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="block-title">Information</div>
-    Work in progress.
-  </div>
-</div>
 
 
 </header>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-R-learnr" class="csl-entry" role="listitem">
+Aden-Buie, G., Schloerke, B., Allaire, J., &amp; Rossell Hayes, A.
+(2025). <em>Learnr: Interactive tutorials for r</em>. <a href="https://rstudio.github.io/learnr/">https://rstudio.github.io/learnr/</a>
+</div>
+<div id="ref-R-quarto" class="csl-entry" role="listitem">
+Allaire, J., &amp; Dervieux, C. (2025). <em>Quarto: R interface to
+quarto markdown publishing system</em>. <a href="https://github.com/quarto-dev/quarto-r">https://github.com/quarto-dev/quarto-r</a>
+</div>
+<div id="ref-R-rmarkdown" class="csl-entry" role="listitem">
+Allaire, J., Xie, Y., Dervieux, C., McPherson, J., Luraschi, J., Ushey,
+K., Atkins, A., Wickham, H., Cheng, J., Chang, W., &amp; Iannone, R.
+(2025). <em>Rmarkdown: Dynamic documents for r</em>. <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>
+</div>
+<div id="ref-R-magrittr" class="csl-entry" role="listitem">
+Bache, S. M., &amp; Wickham, H. (2025). <em>Magrittr: A forward-pipe
+operator for r</em>. <a href="https://magrittr.tidyverse.org">https://magrittr.tidyverse.org</a>
+</div>
+<div id="ref-R-lme4" class="csl-entry" role="listitem">
+Bates, D., Maechler, M., Bolker, B., &amp; Walker, S. (2025). <em>lme4:
+Linear mixed-effects models using eigen and S4</em>. <a href="https://github.com/lme4/lme4/">https://github.com/lme4/lme4/</a>
+</div>
+<div id="ref-R-pak" class="csl-entry" role="listitem">
+Csárdi, G., &amp; Hester, J. (2025). <em>Pak: Another approach to
+package installation</em>. <a href="https://pak.r-lib.org/">https://pak.r-lib.org/</a>
+</div>
+<div id="ref-john2012" class="csl-entry" role="listitem">
+John, L. K., Loewenstein, G., &amp; Prelec, D. (2012). Measuring the
+prevalence of questionable research practices with incentives for truth
+telling. <em>Psychological Science</em>, <em>23</em>(5), 524–532. <a href="https://doi.org/10.1177/0956797611430953">https://doi.org/10.1177/0956797611430953</a>
+</div>
+<div id="ref-R-here" class="csl-entry" role="listitem">
+Müller, K. (2025). <em>Here: A simpler way to find your files</em>. <a href="https://here.r-lib.org/">https://here.r-lib.org/</a>
+</div>
+<div id="ref-nationalacademiesofsciencesengineeringandmedicine2019" class="csl-entry" role="listitem">
+National Academies of Sciences, Engineering, and Medicine. (2019).
+<em>Reproducibility and <span>Replicability</span> in
+<span>Science</span></em>. The National Academies Press. <a href="https://doi.org/10.17226/25303">https://doi.org/10.17226/25303</a>
+</div>
+<div id="ref-R-jsonlite" class="csl-entry" role="listitem">
+Ooms, J. (2025). <em>Jsonlite: A simple and robust JSON parser and
+generator for r</em>. <a href="https://jeroen.r-universe.dev/jsonlite">https://jeroen.r-universe.dev/jsonlite</a>
+</div>
+<div id="ref-R-psych" class="csl-entry" role="listitem">
+Revelle, W. (2026). <em>Psych: Procedures for psychological,
+psychometric, and personality research</em>. <a href="https://personality-project.org/r/psych/">https://personality-project.org/r/psych/</a>
+</div>
+<div id="ref-R-lavaan" class="csl-entry" role="listitem">
+Rosseel, Y., Jorgensen, T. D., &amp; De Wilde, L. (2025). <em>Lavaan:
+Latent variable analysis</em>. <a href="https://lavaan.ugent.be">https://lavaan.ugent.be</a>
+</div>
+<div id="ref-simmons2011" class="csl-entry" role="listitem">
+Simmons, J. P., Nelson, L. D., &amp; Simonsohn, U. (2011).
+False-positive psychology: Undisclosed flexibility in data collection
+and analysis allows presenting anything as significant.
+<em>Psychological Science</em>, <em>22</em>(11), 1359–1366. <a href="https://doi.org/10.1177/0956797611417632">https://doi.org/10.1177/0956797611417632</a>
+</div>
+<div id="ref-R-renv" class="csl-entry" role="listitem">
+Ushey, K., &amp; Wickham, H. (2026). <em>Renv: Project
+environments</em>. <a href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a>
+</div>
+<div id="ref-wicherts2006" class="csl-entry" role="listitem">
+Wicherts, J. M., Borsboom, D., Kats, J., &amp; Molenaar, D. (2006). The
+poor availability of psychological research data for reanalysis. <em>The
+American Psychologist</em>, <em>61</em>(7), 726–728. <a href="https://doi.org/10.1037/0003-066X.61.7.726">https://doi.org/10.1037/0003-066X.61.7.726</a>
+</div>
+<div id="ref-R-tidyverse" class="csl-entry" role="listitem">
+Wickham, H. (2023). <em>Tidyverse: Easily install and load the
+tidyverse</em>. <a href="https://tidyverse.tidyverse.org">https://tidyverse.tidyverse.org</a>
+</div>
+<div id="ref-R-stringr" class="csl-entry" role="listitem">
+Wickham, H. (2025). <em>Stringr: Simple, consistent wrappers for common
+string operations</em>. <a href="https://stringr.tidyverse.org">https://stringr.tidyverse.org</a>
+</div>
+<div id="ref-R-ggplot2" class="csl-entry" role="listitem">
+Wickham, H., Chang, W., Henry, L., Pedersen, T. L., Takahashi, K.,
+Wilke, C., Woo, K., Yutani, H., Dunnington, D., &amp; van den Brand, T.
+(2026). <em>ggplot2: Create elegant data visualisations using the
+grammar of graphics</em>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>
+</div>
+<div id="ref-R-dplyr" class="csl-entry" role="listitem">
+Wickham, H., François, R., Henry, L., Müller, K., &amp; Vaughan, D.
+(2026). <em>Dplyr: A grammar of data manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>
+</div>
+<div id="ref-R-devtools" class="csl-entry" role="listitem">
+Wickham, H., Hester, J., Chang, W., &amp; Bryan, J. (2025).
+<em>Devtools: Tools to make developing r packages easier</em>. <a href="https://devtools.r-lib.org/">https://devtools.r-lib.org/</a>
+</div>
+<div id="ref-R-knitr" class="csl-entry" role="listitem">
+Xie, Y. (2025). <em>Knitr: A general-purpose package for dynamic report
+generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>
+</div>
+<div id="ref-R-DT" class="csl-entry" role="listitem">
+Xie, Y., Cheng, J., Tan, X., &amp; Aden-Buie, G. (2025). <em>DT: A
+wrapper of the JavaScript library DataTables</em>. <a href="https://github.com/rstudio/DT">https://github.com/rstudio/DT</a>
+</div>
+</div>
 
 
 
@@ -888,14 +955,11 @@ window.onload = function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../software/introduction-to-quarto.html" class="pagination-link" aria-label="A not so short introduction to Quarto">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">A not so short introduction to Quarto</span></span>
+      <a href="./example-data/data-hsb.html" class="pagination-link" aria-label="High School and Beyond">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">High School and Beyond</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../software/setup-a-project-environment.html" class="pagination-link" aria-label="Setup a project environment">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Setup a project environment</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -906,7 +970,7 @@ window.onload = function() {
 </div>   
     <div class="nav-footer-center">
 <p>Copyright 2025</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/RiegerSven/library/edit/main/software/quarto-and-zotero.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RiegerSven/library/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/RiegerSven/library/blob/main/software/quarto-and-zotero.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
