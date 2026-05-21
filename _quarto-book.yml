@@ -1,5 +1,7 @@
 project:
   type: book
+  resources: 
+    - example-data/sim_pre_post_data.rds
   output-dir: _book
 
 book:
