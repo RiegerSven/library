@@ -39,6 +39,8 @@ book:
     chapters:
     - href: example-data/data-hsb.qmd
       text: High School and Beyond
+    - href: example-data/data-pre-post.qmd
+      text: Simulated Pre- and Post-Test Data
   - part: Working with Data
     chapters:
     - href: working-with-data/graphical-visualization.qmd

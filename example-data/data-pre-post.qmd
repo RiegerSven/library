@@ -1,0 +1,108 @@
+---
+title: Simulated Pre- and Post-Test Data
+---
+
+## Dataset Description 
+
+A simulated dataset used for various data analysis examples in teaching. The dataset contains three variables:
+
+- `Y1` (pre-test scores),
+- `X` (treatment assignment), and
+- `Y2` (post-test scores). 
+
+
+You can download the data as a `.rds` file here: [sim_pre_post_data.rds](https://riegersven.github.io/library/example-data/sim_pre_post_data.rds), or generate it yourself using the function in @lst-sim-pre-post-data.
+
+
+## Data Generating Process
+
+The data generating process is based on a simple pre-post study design with a binary treatment variable, as illustrated in [@fig-pre-post]. The pre-test scores (`Y1`) are generated from a standard normal distribution. The treatment assignment (`X`) is generated from a Bernoulli distribution with a specified probability of treatment. The post-test scores (`Y2`) are generated based on a linear model that includes the treatment effect (`tau`), the effect of the pre-test scores (`b1`), and an error term with a specified residual variance. 
+
+::: {.column-margin}
+
+```{mermaid}
+%%| label: fig-pre-post
+%%| echo: false
+%%| fig-cap: "An example pre-post study design"
+%%| fig-align: left
+
+flowchart LR
+  Y1 --> R
+  R --.5--> T
+  R --.5--> C
+  T --> Y2
+  C --> Y2
+```
+
+:::
+
+::: {#lst-sim-pre-post-data}
+
+```{r}
+#| label: sim-pre-post-data
+#| code-fold: show
+sim_pre_post_data <- function ( n = 500,
+                                treat_prob = 0.50,
+                                b0 = 0,
+                                tau = 0.25,
+                                b1 = 0.50,
+                                b2 = 0,
+                                seed = 42 ) {
+  set.seed(seed)
+  
+  Y1 <- rnorm(n = n,
+              mean = 0,
+              sd = 1)
+
+  X <- rbinom(n = n,
+              size = 1,
+              prob = treat_prob)   
+
+  XY1 <- X*Y1
+              
+  resid_var <- 1 - (tau^2 * var(X) + 
+                    b1^2 * var(Y1) +
+                    b2^2 * var(XY1) +
+                    2 * tau * b1 * cov(X, Y1) + 
+                    2 * tau * b2 * cov(X, XY1) +
+                    2 * b1 * b2 * cov(Y1, XY1)
+                )
+
+  if (resid_var < 0) {
+    stop("The specified parameters lead to a negative residual variance. Please adjust the parameters.")
+  }
+
+  Y2 <- b0 + tau*X + b1*Y1 + 
+        rnorm(n = n,
+              mean = 0,
+              sd = sqrt(resid_var))
+
+  ret <- data.frame(Y1 = Y1,
+                    X = X,
+                    Y2 = Y2)
+  ret
+}
+
+```
+
+:::
+
+
+The function `sim_pre_post_data` allows you to specify the number of observations (`n`), the probability of treatment assignment (`treat_prob`), the intercept (`b0`), the treatment effect (`tau`), the effect of the pre-test scores (`b1`), the effect of the interaction between treatment and pre-test scores (`b2`), and a random seed for reproducibility. Without any input arguments, the function generates a dataset with the default parameters specified above. 
+
+```{r}
+#| label: exe-sim_pre_post_data
+#| output-location: fragment
+
+ex_dat <- sim_pre_post_data()
+head(ex_dat)
+```
+
+
+
+```{r}
+#| label: sim-pre-post-data-export
+#| echo: false
+#| eval: false
+saveRDS(ex_dat, file = "example-data/sim_pre_post_data.rds")
+```

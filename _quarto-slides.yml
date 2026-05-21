@@ -18,9 +18,9 @@ author:
 format:
   revealjs:
     embed-resources: true
-    slide-level: 3
+    slide-level: 2
     smaller: true
-    scrollable: true
+    scrollable: false
     navigation-mode: linear
     progress: true
     keyboard: true
@@ -35,5 +35,5 @@ format:
     include-after-body: include/webex.js
 
 execute:
-  freeze: true
+  freeze: false
   cache: false
