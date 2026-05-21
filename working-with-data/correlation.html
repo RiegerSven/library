@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.10">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="dcterms.date" content="2026-03-04">
-
 <title>11&nbsp; Correlation Analysis – Coding and Teaching Library</title>
 <style>
 code{white-space: pre-wrap;}
@@ -21,8 +18,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -43,8 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-cd11bcd1b437ec35c0dee322a6d3547e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ed01ea5ea51b7811f2dbb77888d42e76.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-ed01ea5ea51b7811f2dbb77888d42e76.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -70,19 +100,38 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../styles.css">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script><link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="../include/webex.css">
 </head>
-
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -93,13 +142,9 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Coding and Teaching Library</a> 
         <div class="sidebar-tools-main">
@@ -119,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
@@ -133,8 +178,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../software/road-to-reproducible-projects.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Road To Reproducible Projects</span></span></a>
@@ -171,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -180,8 +225,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../example-data/data-hsb.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">High School and Beyond</span></span></a>
@@ -194,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -203,8 +248,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../working-with-data/graphical-visualization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Graphical Visualization (with <code>ggplot2</code>)</span></span></a>
@@ -223,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -231,19 +276,32 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#what-is-a-correlation" id="toc-what-is-a-correlation" class="nav-link active" data-scroll-target="#what-is-a-correlation"><span class="header-section-number">11.1</span> What is a Correlation?</a></li>
+  <li><a href="#correlation-neq-causation" id="toc-correlation-neq-causation" class="nav-link" data-scroll-target="#correlation-neq-causation"><span class="header-section-number">11.2</span> Correlation <span class="math inline">\(\neq\)</span> Causation</a></li>
+  <li><a href="#overview-of-correlation-coefficients" id="toc-overview-of-correlation-coefficients" class="nav-link" data-scroll-target="#overview-of-correlation-coefficients"><span class="header-section-number">11.3</span> Overview of Correlation Coefficients</a></li>
+  <li><a href="#pearsons-product-moment-correlation-coefficient" id="toc-pearsons-product-moment-correlation-coefficient" class="nav-link" data-scroll-target="#pearsons-product-moment-correlation-coefficient"><span class="header-section-number">11.4</span> Pearson’s product moment correlation coefficient</a></li>
+  <li>
+<a href="#hand-calculation" id="toc-hand-calculation" class="nav-link" data-scroll-target="#hand-calculation"><span class="header-section-number">11.5</span> Hand-calculation</a>
+  <ul class="collapse">
+<li><a href="#step-1-calculate-the-covariance-1" id="toc-step-1-calculate-the-covariance-1" class="nav-link" data-scroll-target="#step-1-calculate-the-covariance-1"><span class="header-section-number">11.5.1</span> Step 1: Calculate the Covariance</a></li>
+  </ul>
+</li>
+  <li><a href="#step-2-calculate-the-standard-deviations" id="toc-step-2-calculate-the-standard-deviations" class="nav-link" data-scroll-target="#step-2-calculate-the-standard-deviations"><span class="header-section-number">11.6</span> Step 2: Calculate the Standard Deviations</a></li>
+  <li><a href="#step-3-calculate-the-pearsons-correlation-coefficient" id="toc-step-3-calculate-the-pearsons-correlation-coefficient" class="nav-link" data-scroll-target="#step-3-calculate-the-pearsons-correlation-coefficient"><span class="header-section-number">11.7</span> Step 3: Calculate the Pearson’s Correlation Coefficient</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/RiegerSven/library/edit/main/working-with-data/correlation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RiegerSven/library/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/RiegerSven/library/blob/main/working-with-data/correlation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../working-with-data/graphical-visualization.html">Working with Data</a></li><li class="breadcrumb-item"><a href="../working-with-data/correlation.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Correlation</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Correlation Analysis</span></h1>
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../working-with-data/graphical-visualization.html">Working with Data</a></li><li class="breadcrumb-item"><a href="../working-with-data/correlation.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Correlation</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Correlation Analysis</span>
+</h1>
 </div>
 
 
@@ -269,10 +327,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-</header>
-
-
-<div class="callout callout-style-default callout-note callout-titled" title="This is work in progress...">
+</header><div class="callout callout-style-default callout-note callout-titled" title="This is work in progress...">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -285,11 +340,206 @@ ul.task-list li input[type="checkbox"] {
 <p>Comming soon…</p>
 </div>
 </div>
+<section id="what-is-a-correlation" class="level2 page-columns page-full" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="what-is-a-correlation">
+<span class="header-section-number">11.1</span> What is a Correlation?</h2>
+<blockquote class="blockquote">
+<p>In statistics, correlation is a type of statistical relationship between two random variables or bivariate data. It usually refers to the extent to which a pair of quantities are linearly related. More generally, an arbitrary relationship between variables is called an association, meaning the degree to which the variability in one can be accounted for by the other. […]</p>
+</blockquote>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Definition retrieved from <a href="https://en.wikipedia.org/wiki/Correlation">Wikipedia</a> on May, 21, 2026.</p>
+</div></div></section><section id="correlation-neq-causation" class="level2 page-columns page-full" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="correlation-neq-causation">
+<span class="header-section-number">11.2</span> Correlation <span class="math inline">\(\neq\)</span> Causation</h2>
+<p><img src="images/2163_masters-degrees-awarded-in-education_correlates-with_google-searches-for-gangnam-style.png" class="img-fluid"></p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Correlation is <span class="math inline">\(r = 0.97\)</span>, <span class="math inline">\(p &lt; .001\)</span></p>
+<p>&nbsp;</p>
+<p><a href="https://tylervigen.com/spurious/correlation/2163_masters-degrees-awarded-in-education_correlates-with_google-searches-for-gangnam-style">https://tylervigen.com/spurious/correlation</a></p>
+</div></div></section><section id="overview-of-correlation-coefficients" class="level2" data-number="11.3"><h2 data-number="11.3" class="anchored" data-anchor-id="overview-of-correlation-coefficients">
+<span class="header-section-number">11.3</span> Overview of Correlation Coefficients</h2>
+<p>Different types of correlation coefficients exist depending on the scale level and distributional properties of the variables:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Pearson’s product moment correlation</li>
+<li>Spearman’s rank correlation coefficient</li>
+<li>Kendall’s <span class="math inline">\(\tau\)</span>
+</li>
+<li>Cramér’s V</li>
+<li>Tetrachoric correlation</li>
+<li>Polychoric correlation</li>
+<li>…</li>
+</ul>
+</div>
+</section><section id="pearsons-product-moment-correlation-coefficient" class="level2" data-number="11.4"><h2 data-number="11.4" class="anchored" data-anchor-id="pearsons-product-moment-correlation-coefficient">
+<span class="header-section-number">11.4</span> Pearson’s product moment correlation coefficient</h2>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The Pearson’s product moment correlation coefficient is a statistical measure of the linear relationship between two (continuous) random variables. The formula is given in <a href="#eq-cor" class="quarto-xref">Equation&nbsp;<span>11.1</span></a>.</p>
+<p><span id="eq-cor"><span class="math display">\[
+COR(X,Y) = \frac{COV(X,Y)}{SD_XSD_Y} = \frac{\frac{1}{n-1} \sum\limits_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\frac{1}{n-1} \sum\limits_{i=1}^n (x_i - \bar{x})^2}\sqrt{\frac{1}{n-1} \sum\limits_{i=1}^n (y_i - \bar{y})^2}}
+\tag{11.1}\]</span></span></p>
+<p>The values range from -1 (perfect negative linear) to +1 (perfect positive linear).</p>
+<p>The null hypothesis (usually) is <span class="math inline">\(H_0: \rho = 0\)</span></p>
+<p>The formula of the test statistic is given in <a href="#eq-tt-cor" class="quarto-xref">Equation&nbsp;<span>11.2</span></a>.</p>
+<p><span id="eq-tt-cor"><span class="math display">\[
+t = \frac{COR \cdot \sqrt{n-2}}{\sqrt{1-COR^2}}  \qquad \text{ with } df = n-2
+\tag{11.2}\]</span></span></p>
+</div>
+</div>
+</div>
+</section><section id="hand-calculation" class="level2" data-auto-animate="true" data-number="11.5"><h2 data-auto-animate="true" data-number="11.5" class="anchored" data-anchor-id="hand-calculation">
+<span class="header-section-number">11.5</span> Hand-calculation</h2>
+<div class="callout callout-style-simple callout-caution callout-titled" title="Exercise">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="columns">
+<div class="column" style="width:49%;">
+<p>Calculate the Pearson’s product moment correlation coefficient for the following data by hand.</p>
+<p>Use the formula(s) provided in <a href="#eq-cor" class="quarto-xref">Equation&nbsp;<span>11.1</span></a> (i.e., <span class="math inline">\(COV\)</span>, <span class="math inline">\(SD_X\)</span>, <span class="math inline">\(SD_Y\)</span>).</p>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: right;">X</th>
+<th style="text-align: right;">Y</th>
+<th style="text-align: right;"><span class="math inline">\(\overline{X}\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\overline{Y}\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="step-1-calculate-the-covariance-1" class="level3" data-auto-animate="true" data-number="11.5.1"><h3 data-auto-animate="true" data-number="11.5.1" class="anchored" data-anchor-id="step-1-calculate-the-covariance-1">
+<span class="header-section-number">11.5.1</span> Step 1: Calculate the Covariance</h3>
+<p><span class="math display">\[
+\begin{aligned}
+COV_{XY}
+&amp;=
+\frac{1}{n-1}
+\sum_{i=1}^{n}
+(x_i-\bar{x})(y_i-\bar{y})
+\\[0.5em]
+&amp;=
+\frac{
+(1-3) \cdot (1-2.2)
++
+(2-3) \cdot (3-2.2)
++
+(3-3) \cdot (1-2.2)
+}{
+4
+}
+\\
+&amp;\quad +
+\frac{
+(4-3) \cdot (5-2.2)
++
+(5-3) \cdot (1-2.2)
+}{
+4
+}
+\\[0.5em]
+&amp;=
+0.5
+\end{aligned}
+\]</span></p>
+</section></section><section id="step-2-calculate-the-standard-deviations" class="level2" data-auto-animate="true" data-number="11.6"><h2 data-auto-animate="true" data-number="11.6" class="anchored" data-anchor-id="step-2-calculate-the-standard-deviations">
+<span class="header-section-number">11.6</span> Step 2: Calculate the Standard Deviations</h2>
+<p><span class="math display">\[
+\begin{aligned}
+SD_X &amp;= \sqrt{\frac{1}{n-1} \sum\limits_{i=1}^n (x_i - \bar{x})^2} \\&amp;= \sqrt{\frac{(1-3)^2+(2-3)^2+(3-3)^2+(4-3)^2+(5-3)^2}{4}} \\&amp;= 1.58
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+SD_Y &amp;= \sqrt{\frac{1}{n-1} \sum\limits_{i=1}^n (y_i - \bar{y})^2} \\&amp;= \sqrt{\frac{(1-2.2)^2+(3-2.2)^2+(1-2.2)^2+(5-2.2)^2+(1-2.2)^2}{4}} \\&amp;= 1.79
+\end{aligned}
+\]</span></p>
+</section><section id="step-3-calculate-the-pearsons-correlation-coefficient" class="level2" data-auto-animate="true" data-number="11.7"><h2 data-auto-animate="true" data-number="11.7" class="anchored" data-anchor-id="step-3-calculate-the-pearsons-correlation-coefficient">
+<span class="header-section-number">11.7</span> Step 3: Calculate the Pearson’s Correlation Coefficient</h2>
+<p><span class="math display">\[
+\begin{aligned}
+COR_{XY} &amp;= \frac{COV(X,Y)}{SD_XSD_Y} \\ &amp;= \frac{0.5}{1.58 \cdot 1.79} \\&amp; = 0.18
+\end{aligned}
+\]</span></p>
+<p><br></p>
+<div class="fragment">
+<p>Quick check:</p>
+<div class="cell" data-output-location="column-fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">with</span>(cor_demo,</span>
+<span id="cb1-2"><a href="#cb1-2"></a>      <span class="fu">list</span>(<span class="at">COV =</span> <span class="fu">cov</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y),</span>
+<span id="cb1-3"><a href="#cb1-3"></a>           <span class="at">SDX =</span> <span class="fu">sd</span>(X),</span>
+<span id="cb1-4"><a href="#cb1-4"></a>           <span class="at">SDY =</span> <span class="fu">sd</span>(Y),</span>
+<span id="cb1-5"><a href="#cb1-5"></a>           <span class="at">COR =</span> <span class="fu">cor</span>(<span class="at">x =</span> X,<span class="at">y =</span> Y))</span>
+<span id="cb1-6"><a href="#cb1-6"></a>      )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$COV
+[1] 0.5
+
+$SDX
+[1] 1.581139
+
+$SDY
+[1] 1.788854
+
+$COR
+[1] 0.1767767</code></pre>
+</div>
+</div>
+</div>
 
 
-
-</main> <!-- /main -->
-<script>
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -494,8 +744,7 @@ window.onload = function() {
   update_total_correct();
 }
 
-</script>
-<script id="quarto-html-after-body" type="application/javascript">
+</script><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -899,9 +1148,7 @@ window.onload = function() {
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../working-with-data/descriptive-statistics.html" class="pagination-link" aria-label="Descriptive Statistics">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span>
       </a>          
@@ -913,21 +1160,18 @@ window.onload = function() {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>This book is build with <a href="https://www.quarto.org">Quarto</a>.</p>
 </div>   
     <div class="nav-footer-center">
 <p>Copyright 2025</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/RiegerSven/library/edit/main/working-with-data/correlation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RiegerSven/library/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/RiegerSven/library/blob/main/working-with-data/correlation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RiegerSven/library/edit/main/working-with-data/correlation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RiegerSven/library/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/RiegerSven/library/blob/main/working-with-data/correlation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
