@@ -164,7 +164,7 @@ Finally, we used a (`for`) loop to iterate over each path and executing the `dir
 #| label: create-subDir-2
 #| eval: true
 
-helpmecode::create_dirs
+?helpmecode::create_dirs
 
 
 ```
@@ -284,7 +284,7 @@ Happy Git and GitHub for the useR: <https://happygitwithr.com/>
 :::
 
 
-##  Git in IDEs
+###  Git in IDEs
 
 Download & install Git {{< fa brands git-alt >}}: <https://git-scm.com/downloads> 
 
@@ -388,7 +388,7 @@ The `renv` package does not help with the `R` version, `Pandoc` (R Markdown and 
 
 ::::
 
-## 
+## Initialization
 
 **Recommendation:** Initiate the package when creating a `R` project. Alternativey, call the `renv::init()` function to set up the project infrastructure.
 
@@ -521,7 +521,7 @@ The updated `renv.lock` file looks now as follows:
 ```
 
 
-The `renv` package offers more useful functions such as `renv::restore()` or `renv::upodate()` (see the package documentation: <https://rstudio.github.io/renv/articles/renv.html>). 
+The `renv` package offers more useful functions such as `renv::restore()` or `renv::update()` (see the package documentation: <https://rstudio.github.io/renv/articles/renv.html>). 
 
 
 ### `.Rprofile`
