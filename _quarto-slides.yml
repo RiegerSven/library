@@ -4,6 +4,7 @@ project:
   render:
     - working-with-data/descriptive-statistics.qmd
     - working-with-data/graphical-visualization.qmd
+    - working-with-data/correlation.qmd
 
 author:
   - name: '[Sven Rieger](<https://riegersven.github.io/>)'
@@ -37,3 +38,6 @@ format:
 execute:
   freeze: false
   cache: false
+
+  profile:
+    default: book
