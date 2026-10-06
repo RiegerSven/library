@@ -86,12 +86,6 @@ see @eid2013
 
 ::: {.fragment}
 
-- **Quantiles** (not covered)
-
-:::
-
-::: {.fragment}
-
 - **Measures of central tendency**
   - [Mean](#descr-mean)
   - Weighted mean (not covered)
@@ -99,6 +93,12 @@ see @eid2013
   - [Median](#descr-median)
   - Mode (not covered)
   - ...
+
+:::
+
+::: {.fragment}
+
+- [**Quantiles**](#descr-quantiles)
 
 :::
 
@@ -170,7 +170,7 @@ ggplot(data.frame(x = c(-3, 3)), aes(x)) +
 
 ## Example data set
 
-Consider the following 2 vectors within the example data set**
+Consider the following 2 vectors within the example data set.
 
 ```{r}
 #| label: exDat
@@ -337,6 +337,8 @@ ex_dat |>
 
 :::
 
+
+
 ## Mean {#descr-mean}
 
 ::: {.callout-note appearance="simple" icon="false"}
@@ -359,7 +361,7 @@ If the underlying data is a sample (i.e., a subset of a population), it is calle
 
 ::: {.fragment}
 
-How to calculate the mean in `R`?
+In R:
 
 ```{r}
 #| label: mean-r1
@@ -463,7 +465,7 @@ $$
 
 ::: {.fragment}
 
-How to calculate the median in `R`?
+In R:
 
 ```{r}
 #| label: med-r
@@ -502,7 +504,7 @@ $$
 
 ::: {.fragment}
 
-How to calculate the variance in `R`?
+In R:
 
 ```{r}
 #| label: var-r
@@ -517,6 +519,54 @@ with(ex_dat,
 :::
 
 
+## Quantiles {#descr-quantiles}
+
+::: {.callout-note appearance="simple" icon="false"}
+
+A $p$-quantile is the value $x_p$ $(0 < p < 1)$ such that at least $p \cdot 100$ of the data are less than or equal to $x_p$, and at least $(1 - p) \cdot 100$ of the data are greater than or equal to $x_p$.
+
+To calculate the $p$-quantile, we first need to sort the vector ($x = 1, 2, 3, 5, 8$ see also [Median](#descr-median)) and then multiply the length of the vector (here 5)  with $p$ (e.g., 0.25 for the 25% quantile) to get the corresponding index. 
+
+
+$x_{0.25} = x_{5 \cdot 0.25} = x_{1.25} = x_2 = 2$
+
+:::
+
+In R:
+
+::: {.panel-tabset}
+
+### stats::quantile
+
+```{r}
+#| label: quantiles-r
+#| echo: true
+#| code-line-numbers: false
+with(ex_dat,
+     quantile(num_vec, probs = c(0.25, 0.75)))
+```
+
+### stats::quantile approximation
+
+```{r}
+#| label: p_quantile-approx
+p_quantile <- function(x, p) {
+  x_sorted <- sort(x)
+  n <- length(x_sorted)
+  k <- ceiling(n * p)
+  out <- x_sorted[k]
+  names(out) <- paste0(p * 100, "%")
+  out
+}
+```
+
+```{r}
+#| label: p_quantile-approx-2
+#| code-line-numbers: false
+p_quantile(ex_dat$num_vec, c(0.25, 0.75))
+```
+
+:::
 
 ## Standard Deviation {#descr-sd}
 
@@ -544,7 +594,7 @@ $$
 
 ::: {.fragment}
 
-How to calculate the standard deviation in `R`?
+In R:
 
 ```{r}
 #| label: sd-r
@@ -571,7 +621,7 @@ $${#eq-range}
 
 ::: {.fragment}
 
-How to calculate the range in `R`?
+In R:
 
 ```{r}
 #| label: range-r-1
@@ -640,7 +690,7 @@ head(dat, 10)
 
 ::: {.content-hidden unless-profile="slides"}
 
-## Solution {#descr-solution}
+## Solution {#descr-solution .scrollable}
 
 :::
 
@@ -839,7 +889,7 @@ dat |>
 #| echo: false
 #| 
 descr_q1 <- webexercises::mcq(
-  opts = c("mean", "median", "skewness", "mode", answer = "skewness")
+  opts = c("mean", answer = "skewness", "median", "mode")
 )
 ```
 
@@ -857,4 +907,25 @@ descr_q2 <- webexercises::mcq(
 
 Most functions in R can deal *appropriately* with missing data if the argument `na.rm` is set to `TRUE`. `r descr_q2`
 
+
+```{r}
+#| label: descr-q-3
+#| echo: false
+#|
+
+descr_q3 <- webexercises::mcq(
+  opts = c(
+    "Because squaring deviations requires a correction factor.",
+    answer = "Because one degree of freedom is lost when estimating the mean.",
+    "Because dividing by n would overestimate the population variance.",
+    "Because the sample mean is always equal to the population mean."
+  )
+)
+```
+
+
+
+Why do we divide by $n-1$ instead of $n$ when calculating the sample variance? `r descr_q3`
+
 :::
+
