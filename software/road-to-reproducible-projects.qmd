@@ -50,7 +50,8 @@ While factors 1 to 3 largely depend on the goodwill (data availability) and inte
 ```{mermaid}
 %%| label: fig-road
 %%| fig-cap: "A simplified workflow for data projects."
-%%| 
+%%| echo: true
+%%| code-fold: true
 flowchart TB
     IDE["Choose an IDE"] --> RStudio["RStudio"]
     IDE --> Positron["Positron"]
